@@ -23,9 +23,9 @@ void menu()
     text(options[i], rectX, rectY + y + 50);
     y+=150;
      
-  
     
   }
   
+  /*if(mouseX = */
   
 }
