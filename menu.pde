@@ -1,31 +1,40 @@
 
-void menu()
+class button
 {
   
-  float x = 0.0f;
-  float y = 0.0f;
-  float rectX = width/4;
-  float rectY = height/4;
-  float recW = width /8;
-  float recH = height/8;
+  float x ;
+  float y ;
+  float rectX;
+  float rectY;
+  float recW;
+  float recH;
+  String option;
   
-  String options[] = {"1. Spaceship Cockpit", "2. Engine Room", "3. Weapons Defence", "4. Exit"};
-  
-  
-  
-  for(int i = 0; i < options.length; i++)
+  //default constructors
+  menu()
   {
-    stroke(62, 67, 67);
-    //fill(44, 47, 185);
-    noFill();
-    rect(rectX, rectY + y, recW + recW, recH);
-    textSize(40);
-    text(options[i], rectX, rectY + y + 50);
-    y+=150;
+     x = 0.0f;
+     y = 0.0f; 
+     rectX = 0.0f;
+     rectY = 0.0f;
+     option = "";
      
+  }
+  
+  //parameterised constructors
+  menu(float x, float y, float rectX, float rectY, float recW, float recH, String opt)
+  {
+    this.x = 0;
+    this.y = 0;
+    this.rectX = 0;
+    this.rectY = 0;
+    this.recW = 0;
+    this.recH = 0;
+    this.option = opt;
+    
     
   }
   
-  /*if(mouseX = */
+  
   
 }

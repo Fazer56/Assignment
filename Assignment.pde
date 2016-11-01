@@ -22,7 +22,7 @@ void gameState(float gamestate)
  if(gamestate == 0)
  {
    background(0);
-   menu();
+   
    
  }
  
