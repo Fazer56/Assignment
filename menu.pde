@@ -1,5 +1,4 @@
-
-class button
+class Button
 {
   
   float x ;
@@ -11,7 +10,7 @@ class button
   String option;
   
   //default constructors
-  menu()
+  Button()
   {
      x = 0.0f;
      y = 0.0f; 
@@ -22,7 +21,7 @@ class button
   }
   
   //parameterised constructors
-  menu(float x, float y, float rectX, float rectY, float recW, float recH, String opt)
+  Button(float x, float y, float rectX, float rectY, float recW, float recH, String opt)
   {
     this.x = 0;
     this.y = 0;
@@ -34,7 +33,5 @@ class button
     
     
   }
-  
-  
   
 }
