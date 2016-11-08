@@ -1,9 +1,15 @@
 void setup()
 {
   fullScreen();
-
+  
+  table = loadTable("data.tsv", "header");
 
 }
+
+Table table;
+
+ArrayList<Planet> planets = new ArrayList<Planet>();
+
 
 int gamestate = 0;
 
@@ -21,7 +27,7 @@ void draw()
   {
     background(0);
     stars();
-    //drawUi();
+    drawUi();
     
     
   }
@@ -34,6 +40,7 @@ void draw()
 void menu()
 {
   
+  draw
   options();
    
 }
@@ -151,3 +158,10 @@ int options()
   
   return gamestate;
 }
+
+//load planet information into planets arraylist
+void loadPlanetTable()
+{
+  
+}
+  

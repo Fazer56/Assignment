@@ -19,6 +19,35 @@ void stars()
   ellipse(x + 230 - starSize2, 280 - starSize2, starSize2, starSize2);
   ellipse(x + 140 + starSize1, 30 + starSize1, starSize1, starSize1);
   
+  float speed = 5;
+
+     
+   for(int i = 0; i < 100; i++)
+   {
+    if(frameCount % 12 == 0)
+    {
+    
+      ellipse(random(0, width/2), random(0, height/2), starSize1, starSize1);
+      ellipse(random(width/2, width), random(height/2, height), starSize2, starSize2);
+      ellipse(random(0, width), random(0, height), starSize1, starSize1);
+    }
+   }
+   
+   if(keyPressed == true)
+   {
+    
+     if(key == 'w' || key == 'W' )
+     {
+       
+       speed+= 5;
+       
+     }
+     
+   }
+   
+    
+   
+  
   
   //x+=xDelta;
   
@@ -38,7 +67,14 @@ void stars()
       
     }
     
-    if(key == 'w' || key == 'W')
+    if(key == ' ');
+    {
+      gamestate = 0;
+     
+      
+    }
+    
+    /*if(key == 'w' || key == 'W')
     {
       starSize2++;
       starSize1++;
@@ -50,7 +86,7 @@ void stars()
       starSize2--;
       starSize1--;
       
-    }
+    }*/
     
     
     
