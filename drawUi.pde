@@ -7,7 +7,7 @@ void drawUi()
  
 }
 
- void radar()
+void radar()
   {
     float ellX = width/2;
     float ellY = height/2;

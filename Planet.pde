@@ -5,6 +5,7 @@ class Planet
   float diameter;
   float orbitperiod;
   float orbitvel;
+  color c;
   
   //using an array to split the fields
   Planet(String line)
@@ -22,7 +23,18 @@ class Planet
   //default constructors
   Planet()
   {
-   
+    
+  }
+ 
+  String toString()
+  {
+    return planet + "\t" 
+          + distance 
+          + "\t" + diameter
+          + "\t" 
+          + orbitperiod + "\t" 
+          + orbitvel;
+    
   }
   
 }

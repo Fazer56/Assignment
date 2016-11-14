@@ -3,7 +3,7 @@ void setup()
   fullScreen();
   
   table = loadTable("data.tsv", "header");
-
+  loadPlanetTable();
 }
 
 Table table;
@@ -40,8 +40,9 @@ void draw()
 void menu()
 {
   
-  draw
+  
   options();
+  drawDiameterBarChart();
    
 }
 
@@ -162,6 +163,76 @@ int options()
 //load planet information into planets arraylist
 void loadPlanetTable()
 {
+ 
+  
+  for(TableRow row : table.rows())
+  {
+     Planet pl1 = new Planet();
+    
+    pl1.planet = row.getString("planet");
+    pl1.distance = row.getFloat("distance");
+    pl1.diameter = row.getFloat("diameter");
+    pl1.orbitperiod = row.getFloat("orbitperiod");
+    pl1.orbitvel = row.getFloat("orbitvel");
+    pl1.c = color(random(255), random(255), random(255));
+    
+    planets.add(pl1);
+    
+  }
   
 }
+
+void drawDiameterBarChart()
+{
   
+  float x = width/2 + 20;
+  float y = 0;
+  float boxW = width/2 -30;
+  float boxH = height/2;
+  float barW = boxW/12;
+  float boxX = x + boxW/8;
+  float boxY = height/2 + 170;
+  float scale = boxH/maxVal();  
+  
+  noFill();
+  rect(x, y + 10, boxW, boxH + 200);
+  textSize(40);
+  text("Planetary Diemeter in KM", boxX + 40, 80);
+  
+  Planet pl1 = new Planet(); 
+  for(int i = 0; i < planets.size(); i++)
+  {
+    pl1 = planets.get(i);
+    fill(pl1.c);
+    rect(boxX, boxY, barW, -pl1.diameter*scale );
+    fill(255,255,255);
+    textSize(18);
+    text(pl1.planet, boxX, boxY + 20);
+    boxX = boxX + barW + 10;
+    
+  }
+  fill(255,255,255);
+  
+}
+
+float maxVal()
+{
+  Planet pl1 = new Planet();
+  
+  float max = 0;
+  
+  for(int i = 0; i < planets.size(); i++)
+  {
+    pl1 = planets.get(i);
+    if(pl1.diameter > max)
+    {
+      max = pl1.diameter;
+      
+    }
+    
+    
+  }
+  
+  return max;
+  
+}
