@@ -1,9 +1,10 @@
 void setup()
 {
-  fullScreen();
+  fullScreen(P3D);
   
   table = loadTable("data.tsv", "header");
   loadPlanetTable();
+  smooth();
 }
 
 Table table;
@@ -23,10 +24,9 @@ void draw()
     menu();
   }
   
-  if (options() == 1)
+  else if (options() == 1)
   {
     background(0);
-    stars();
     drawUi();
     
     
@@ -43,6 +43,7 @@ void menu()
   
   options();
   drawDiameterBarChart();
+ // galaxyMap();
    
 }
 
@@ -186,7 +187,7 @@ void drawDiameterBarChart()
 {
   
   float x = width/2 + 20;
-  float y = 0;
+  float y = 10;
   float boxW = width/2 -30;
   float boxH = height/2;
   float barW = boxW/12;
@@ -194,8 +195,9 @@ void drawDiameterBarChart()
   float boxY = height/2 + 170;
   float scale = boxH/maxVal();  
   
+  strokeWeight(2);
   noFill();
-  rect(x, y + 10, boxW, boxH + 200);
+  rect(x, y , boxW, boxH + 250);
   textSize(40);
   text("Planetary Diemeter in KM", boxX + 40, 80);
   
@@ -207,11 +209,14 @@ void drawDiameterBarChart()
     rect(boxX, boxY, barW, -pl1.diameter*scale );
     fill(255,255,255);
     textSize(18);
-    text(pl1.planet, boxX, boxY + 20);
+    text(pl1.planet, boxX, boxY + 50);
     boxX = boxX + barW + 10;
     
   }
   fill(255,255,255);
+  stroke(255,255,255);
+  line(x + barW, 120, x + barW, boxY + 20); 
+  line(x + barW, 120, x + barW, boxY + 20); 
   
 }
 
