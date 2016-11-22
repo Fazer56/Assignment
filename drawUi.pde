@@ -1,3 +1,6 @@
+float gauge = 248;
+float counter = 0;
+
 void drawUi()
 {
   UI bottom = new UI();
@@ -6,7 +9,6 @@ void drawUi()
   UI right = new UI();
   
   background(1,34,50);
-  
   //bottom half of screen
   bottom.x = 0;
   bottom.y = height/1.5;
@@ -32,6 +34,9 @@ void drawUi()
   left.uiWidth = bottom.uiWidth;
   left.uiHeight = top.uiHeight;
   arc(left.x , left.y-90 , left.y + left.uiHeight , left.y + left.uiHeight, radians(270), radians(450));
+  fill(255,100,3);
+  arc(0, 180, 467 , 180, radians(270), radians(360));
+  arc(0, 720, 467 , 180, radians(0), radians(90));
   
   //right side
   fill(0);
@@ -40,6 +45,9 @@ void drawUi()
   right.uiWidth = bottom.uiWidth;
   right.uiHeight = left.uiHeight;
   arc(right.x , right.y-90 , right.y + right.uiHeight , right.y + right.uiHeight, radians(90), radians(270));
+  fill(255,100,3);
+  arc(1915, 180, 465 , 180, radians(180), radians(270));
+  arc(1915, 720, 465 , 180, radians(90), radians(180));
   
   //draw some buttons on screen
   Button b1 = new Button();
@@ -57,6 +65,8 @@ void drawUi()
   fill(0,255,255);
   rect(b1.x, b1.y, b1.recW, b1.recH);
   fill(255,255,255);
+  textSize(30);
+  textFont(font2);
   text(b1.option, b1.x + 3, b1.y, b1.recW, b1.recH);
   
   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
@@ -132,8 +142,27 @@ void drawUi()
     
   }
   
+  //draw fuel gauge
+  UI fuel = new UI();
+  fuel.x = 200;
+  fuel.y = height/6 - 120;
+  fuel.uiWidth = 250;
+  fuel.uiHeight = 50;
   
- 
+  
+  strokeWeight(3);
+  stroke(0,255,255);
+  noFill();
+  rect(fuel.x, fuel.y, fuel.uiWidth, fuel.uiHeight);
+  noStroke();
+  fill(255,255,0);
+  rect(fuel.x+1, fuel.y, gauge, fuel.uiHeight-2);
+  
+  fill(0, 255,255);
+  textFont(font, 48);
+  text("Fuel Gauge", fuel.x, fuel.y - 10);
+  text("%" + counter, fuel.x +(48*5), fuel.y - 10);
+  
   if(keyPressed == true)
   {
     if(key == ' ')

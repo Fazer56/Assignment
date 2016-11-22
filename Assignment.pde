@@ -2,29 +2,41 @@ void setup()
 {
   fullScreen(P3D);
   
-  table = loadTable("data.tsv", "header");
-  loadPlanetTable();
-  smooth();
+ //load in the font
+ font = loadFont("ARDESTINE-48.vlw");
+ font2 = loadFont("Electromagnetic Lungs.otf.vlw"); 
+  
+ table = loadTable("data.tsv", "header");
+ loadPlanetTable();
+ smooth();
+  
 }
+
+PFont font, font2;
+
 
 Table table;
 
 ArrayList<Planet> planets = new ArrayList<Planet>();
 
+//PFont font;
 
 int gamestate = 0;
 
 void draw()
 {
   
+  println(mouseX);
+  println(mouseY);
+  
   background(0);
   
-  if(options() == 0)
+  if(gamestate == 0)
   {
     menu();
   }
   
-  else if (options() == 1)
+  else if (gamestate == 1)
   {
     background(0);
     drawUi();
