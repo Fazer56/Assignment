@@ -41,8 +41,107 @@ void drawUi()
   right.uiHeight = left.uiHeight;
   arc(right.x , right.y-90 , right.y + right.uiHeight , right.y + right.uiHeight, radians(90), radians(270));
   
+  //draw some buttons on screen
+  Button b1 = new Button();
+  Button b2 = new Button();
+  Button b3 = new Button();
+  
+  //Button 1 
+  b1.x = width/4;
+  b1.y = height/1.4;
+  b1.recW = 200;
+  b1.recH = 100;
+  b1.option = "REFUEL";
+  
+  noStroke();
+  fill(0,255,255);
+  rect(b1.x, b1.y, b1.recW, b1.recH);
+  fill(255,255,255);
+  text(b1.option, b1.x + 3, b1.y, b1.recW, b1.recH);
+  
+  if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
+  {
+    
+    fill(0,255,0);
+    rect(b1.x, b1.y, b1.recW, b1.recH);
+    fill(255,255,255);
+    text(b1.option, b1.x + 3, b1.y, b1.recW, b1.recH);
+    
+    if(mousePressed == true)
+    {
+      fill(0,255,0);
+      rect(b1.x, b1.y, b1.recW, b1.recH);
+      rect(b1.x+2, b1.y+2, b1.recW, b1.recH);
+      
+      
+    }
+    
+  }
+  
+  //Button 2 
+  b2.x = b1.x + 300;
+  b2.y = height/1.4;
+  b2.recW = b1.recW;
+  b2.recH = 100;
+  
+  noStroke();
+  fill(0,255,255);
+  rect(b2.x, b2.y, b2.recW, b2.recH);
+  
+  if((mouseX >= b2.x && mouseX < b2.x + b1.recW) && (mouseY >= b2.y && mouseY < b2.y + b2.recH))
+  {
+    
+    fill(255, 0,0);
+    rect(b2.x, b2.y, b2.recW, b2.recH);
+    
+    if(mousePressed == true)
+    {
+     
+      rect(b2.x, b2.y, b2.recW, b2.recH);
+      rect(b2.x+2, b2.y+2, b2.recW, b2.recH);
+      
+      
+    }
+    
+  }
+  
+  //Button 3
+  b3.x = b2.x + 300;
+  b3.y = height/1.4;
+  b3.recW = b1.recW;
+  b3.recH = 100;
+  
+  noStroke();
+  fill(0,255,255);
+  rect(b3.x, b3.y, b3.recW, b3.recH);
+  
+  if((mouseX >= b3.x && mouseX < b3.x + b1.recW) && (mouseY >= b3.y && mouseY < b3.y + b3.recH))
+  {
+    
+    fill(0, 0,255);
+    rect(b3.x, b3.y, b3.recW, b3.recH);
+    
+    if(mousePressed == true)
+    {
+     
+      rect(b3.x, b3.y, b3.recW, b3.recH);
+      rect(b3.x+2, b3.y+2, b3.recW, b3.recH);
+      
+      
+    }
+    
+  }
+  
   
  
-  
+  if(keyPressed == true)
+  {
+    if(key == ' ')
+    {
+      gamestate = 0;
+      
+    } 
+    
+  }
   
 }
