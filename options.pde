@@ -134,3 +134,84 @@ void loadPlanetTable()
   }
   
 }
+
+void charts()
+{
+  
+  //Button 1
+  Button opt1;
+  opt1 = new Button();
+  
+  opt1.rectX = width/1.5 + 20;
+  opt1.rectY = height/2 + 270;
+  opt1.recW = 100;
+  opt1.recH = 100;
+  opt1.option = "Diameter";
+  
+  stroke(0,255,255);
+  noFill();
+  rect(opt1.rectX, opt1.rectY, opt1.recW, opt1.recH);
+  textFont(font3);
+  textSize(20);
+  text(opt1.option, opt1.rectX+10, opt1.rectY+50);
+  
+   
+  if((mouseX >= opt1.rectX && mouseX <= opt1.rectX + opt1.recW) && (mouseY >= opt1.rectY && mouseY <= opt1.rectY + opt1.recH))
+  {
+   
+    fill(255,150,25);
+    rect(opt1.rectX, opt1.rectY, opt1.recW, opt1.recH);
+    fill(255,255,255);
+    textSize(20);
+    text(opt1.option, opt1.rectX+10, opt1.rectY+50);
+    
+    if(mousePressed == true)
+    {
+      check = 0;
+      
+      
+    }
+    
+  }
+  
+  //Button 2
+  Button opt2;
+  opt2 = new Button();
+  
+  opt2.rectX = opt1.rectX + 200;
+  opt2.rectY = height/2 + 270;
+  opt2.recW = opt1.recW;
+  opt2.recH = opt1.recH;
+  opt2.option = "Distance";
+  
+  stroke(0,255,255);
+  noFill();
+  rect(opt2.rectX, opt2.rectY, opt2.recW, opt2.recH);
+  textSize(20);
+  text(opt2.option, opt2.rectX+10, opt2.rectY+50);
+    
+  
+  if((mouseX >= opt2.rectX && mouseX <= opt2.rectX + opt2.recW) && (mouseY >= opt2.rectY && mouseY <= opt2.rectY + opt2.recH))
+  {
+   
+    fill(255,150,25);
+    rect(opt2.rectX, opt2.rectY, opt2.recW, opt2.recH);
+    fill(255,255,255);
+    textSize(20);
+    text(opt2.option, opt2.rectX+10, opt2.rectY + 50);
+    
+    
+    
+    if(mousePressed == true)
+    {
+      check = 1;
+    } 
+  }
+  noFill();
+  stroke(0, 255, 255);
+  ellipse(mouseX, mouseY, 20, 20);
+  line(mouseX-20, mouseY, mouseX + 20, mouseY);
+  line(mouseX, mouseY -20, mouseX, mouseY + 20);
+  
+  
+}

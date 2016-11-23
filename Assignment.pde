@@ -6,6 +6,9 @@ void setup()
  font = loadFont("ARDESTINE-48.vlw");
  font2 = loadFont("Electromagnetic Lungs.otf.vlw"); 
  font3 = loadFont("PhatBoy Slim.otf.vlw"); 
+ 
+ //load image
+ img = loadImage("uni2.jpg");
   
  table = loadTable("data.tsv", "header");
  loadPlanetTable();
@@ -13,55 +16,21 @@ void setup()
   
 }
 
+PImage img;
+
 PFont font, font2, font3;
 
-class Planet
-{
-  String planet;
-  float distance;
-  float diameter;
-  float orbitperiod;
-  float orbitvel;
-  color c;
-  
-  //using an array to split the fields
-  Planet(String line)
-  {
-    String[] parts = line.split("\t");
-    planet = parts[0];
-    distance = Float.parseFloat(parts[1]);
-    diameter = Float.parseFloat(parts[2]);
-    orbitperiod = Float.parseFloat(parts[3]);
-    orbitvel = Float.parseFloat(parts[4]);
-    
-    
-  }
-  
-  //default constructors
-  Planet()
-  {
-    
-  }
- 
-  String toString()
-  {
-    return planet + "\t" 
-          + distance 
-          + "\t" + diameter
-          + "\t" 
-          + orbitperiod + "\t" 
-          + orbitvel;
-    
-  }
-  
-}
+/* Class for UI*/
+
+/* Class for Planets*/
 
 
 Table table;
 
 ArrayList<Planet> planets = new ArrayList<Planet>();
 
-int gamestate = 0;
+int gamestate = -1;
+int check = 0;
 
 void draw()
 {
@@ -70,10 +39,18 @@ void draw()
   println(mouseY);
   
   background(0);
+  image(img, 0, 0);
+   
+  if(gamestate == -1)
+  {
+    loading();
+    
+  }
   
-  if(gamestate == 0)
+  else if(gamestate == 0)
   {
     menu();
+    charts();
   }
   
   else if (gamestate == 1)
@@ -94,7 +71,17 @@ void menu()
   
   
   options();
-  drawDiameterBarChart();
+  
+  if(check == 0)
+  {
+    drawDiameterBarChart();
+  }
+  else if(check ==1)
+  {
+    drawTrendGraph();
+  }
+  
+  
  // galaxyMap();
    
 }
@@ -136,8 +123,41 @@ void drawDiameterBarChart()
 
 void drawTrendGraph()
 {
-  UI trend = new UI();
+  float x = width/2 + 20;
+  float y = 10;
+  float boxW = width/2 -30;
+  float boxH = height/2;
+  float barW = boxW/12;
+  float boxX = x + boxW/8;
+  float boxY = height/2 + 170;
+  float scale = boxH/distMaxVal(); 
+  float bx = barW + 10;
+  float txtX = boxX;
   
+  strokeWeight(2);
+  noFill();
+  rect(x, y , boxW, boxH + 250);
+  textFont(font3);
+  textSize(40);
+  text("Planetary Orbit Velocity", boxX + 40, 80);
+  
+  Planet pl1 = new Planet();
+  Planet pl2 = new Planet(); 
+  for(int i = 0; i < planets.size()-1; i++)
+  {
+    pl1 = planets.get(i);
+    pl2 = planets.get(i+1);
+    fill(pl1.c);
+    strokeWeight(3);
+    line(boxX, boxY-pl1.distance*scale, boxX + barW, boxY-pl2.distance*scale );
+    ellipse(boxX, boxY-pl1.distance*scale, 30, 30);
+    fill(255,255,255);
+    textSize(18);
+    text(pl1.planet, txtX, boxY + 50);
+    boxX = boxX + barW;
+    txtX = txtX + bx;
+    
+  }
   
 }
 
@@ -182,4 +202,4 @@ float distMaxVal()
   }
   
   return max;
-  
+}
