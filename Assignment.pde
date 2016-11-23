@@ -5,6 +5,7 @@ void setup()
  //load in the font
  font = loadFont("ARDESTINE-48.vlw");
  font2 = loadFont("Electromagnetic Lungs.otf.vlw"); 
+ font3 = loadFont("PhatBoy Slim.otf.vlw"); 
   
  table = loadTable("data.tsv", "header");
  loadPlanetTable();
@@ -12,14 +13,53 @@ void setup()
   
 }
 
-PFont font, font2;
+PFont font, font2, font3;
+
+class Planet
+{
+  String planet;
+  float distance;
+  float diameter;
+  float orbitperiod;
+  float orbitvel;
+  color c;
+  
+  //using an array to split the fields
+  Planet(String line)
+  {
+    String[] parts = line.split("\t");
+    planet = parts[0];
+    distance = Float.parseFloat(parts[1]);
+    diameter = Float.parseFloat(parts[2]);
+    orbitperiod = Float.parseFloat(parts[3]);
+    orbitvel = Float.parseFloat(parts[4]);
+    
+    
+  }
+  
+  //default constructors
+  Planet()
+  {
+    
+  }
+ 
+  String toString()
+  {
+    return planet + "\t" 
+          + distance 
+          + "\t" + diameter
+          + "\t" 
+          + orbitperiod + "\t" 
+          + orbitvel;
+    
+  }
+  
+}
 
 
 Table table;
 
 ArrayList<Planet> planets = new ArrayList<Planet>();
-
-//PFont font;
 
 int gamestate = 0;
 
@@ -75,6 +115,7 @@ void drawDiameterBarChart()
   strokeWeight(2);
   noFill();
   rect(x, y , boxW, boxH + 250);
+  textFont(font3);
   textSize(40);
   text("Planetary Diemeter in KM", boxX + 40, 80);
   
@@ -90,10 +131,13 @@ void drawDiameterBarChart()
     boxX = boxX + barW + 10;
     
   }
-  fill(255,255,255);
-  stroke(255,255,255);
-  line(x + barW, 120, x + barW, boxY + 20); 
-  line(x + barW, 120, x + barW, boxY + 20); 
+  
+}
+
+void drawTrendGraph()
+{
+  UI trend = new UI();
+  
   
 }
 
@@ -118,3 +162,24 @@ float maxVal()
   return max;
   
 }
+
+float distMaxVal()
+{
+  Planet pl2 = new Planet();
+  
+  float max = 0;
+  
+  for(int i = 0; i < planets.size(); i++)
+  {
+    pl2 = planets.get(i);
+    if(pl2.distance > max)
+    {
+      max = pl2.distance;
+      
+    }
+    
+    
+  }
+  
+  return max;
+  

@@ -15,6 +15,7 @@ int options()
   stroke(0,255,255);
   noFill();
   rect(opt1.rectX, opt1.rectY, opt1.recW, opt1.recH);
+  textFont(font3);
   textSize(opt1.rectX/10);
   text(opt1.option, opt1.rectX+10, opt1.rectY + opt1.rectX/10);
   

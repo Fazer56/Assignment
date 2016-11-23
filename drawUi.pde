@@ -1,5 +1,5 @@
 float gauge = 248;
-float counter = 0;
+float counter = 100;
 
 void drawUi()
 {
@@ -162,6 +162,40 @@ void drawUi()
   textFont(font, 48);
   text("Fuel Gauge", fuel.x, fuel.y - 10);
   text("%" + counter, fuel.x +(48*5), fuel.y - 10);
+  
+   if(frameCount % 12 == 0)
+   {
+    gauge-=2;
+    counter--;
+    
+    if(gauge <= 0)
+    {
+     
+      gauge = 0;
+      
+    }
+    
+    if(counter <= 0)
+    {
+     
+      counter = 0;
+      
+    }
+    
+   }
+   
+   if(counter < 20)
+   {
+      
+        noFill();
+        stroke(255,0,0);
+        rect(width/2 -150, height/2 - 40, 300, 150); 
+        fill(255,0,0);
+        textFont(font, 25);
+        text("Warning ! \n Fuel Low ! \nSwitch to\nEngine room to refuel !", width/2 - 130, height/2);
+      
+      
+   }
   
   if(keyPressed == true)
   {
