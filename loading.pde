@@ -5,8 +5,8 @@ float yz = 0;
 float tz = 0; 
 float pz = 0;
 
-<<<<<<< HEAD
-float selected = 0;
+
+
 
 float selectedX;
 float selectedY;
@@ -58,7 +58,7 @@ void loading()
   
   
   
-  if(frameCount %6 ==0)
+  if(frameCount %3 ==0)
   {
     load++;
     
@@ -111,7 +111,7 @@ void loading()
   
      yz = -yz;
    }
-<<<<<<< HEAD
+
    
    //drawStars 
    if(mousePressed == true)
@@ -137,7 +137,24 @@ void loading()
    }
    
    
+   /*
+   Button b1 = new Button(width/1.5, height/3, 250, 150, "New Button", width/1.5 + 30, height/3 + 100, 20);
+   
+   b1.drawButton();
+   
+   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
+   {
+    
+     if(mousePressed == true)
+     {
+       
+       gamestate = 0;
+       
+     }
+     
+   } */
+   
+   
 }
    
   
-}

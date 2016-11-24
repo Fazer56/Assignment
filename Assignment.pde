@@ -4,7 +4,7 @@ void setup()
   
  //load in the font
  font = loadFont("ARDESTINE-48.vlw");
- font2 = loadFont("Electromagnetic Lungs.otf.vlw"); 
+ font2 = loadFont("Stencil-48.vlw"); 
  font3 = loadFont("PhatBoy Slim.otf.vlw"); 
  
  //load image
@@ -105,7 +105,7 @@ void drawDiameterBarChart()
   strokeWeight(2);
   noFill();
   rect(x, y , boxW, boxH + 250);
-  textFont(font3);
+  textFont(font2);
   textSize(40);
   text("Planetary Diemeter in KM", boxX + 40, 80);
   
@@ -140,7 +140,7 @@ void drawTrendGraph()
   strokeWeight(2);
   noFill();
   rect(x, y , boxW, boxH + 250);
-  textFont(font3);
+  textFont(font2);
   textSize(40);
   text("Planetary Orbit Velocity", boxX + 40, 80);
   

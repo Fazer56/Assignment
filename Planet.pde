@@ -6,6 +6,8 @@ class Planet
   float orbitperiod;
   float orbitvel;
   color c;
+  PVector location;
+  PVector move;
   
   //using an array to split the fields
   Planet(String line)

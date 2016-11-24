@@ -15,8 +15,8 @@ int options()
   stroke(0,255,255);
   noFill();
   rect(opt1.rectX, opt1.rectY, opt1.recW, opt1.recH);
-  textFont(font3);
-  textSize(opt1.rectX/10);
+  textFont(font2);
+  textSize(opt1.rectX/12);
   text(opt1.option, opt1.rectX+10, opt1.rectY + opt1.rectX/10);
   
    
@@ -26,7 +26,7 @@ int options()
     fill(0,200,255);
     rect(opt1.rectX, opt1.rectY, opt1.recW, opt1.recH);
     fill(255,255,255);
-    textSize(opt1.rectX/10);
+    textSize(opt1.rectX/12);
     text(opt1.option, opt1.rectX+10, opt1.rectY+ opt1.rectX/10);
     
     if(mousePressed == true)
@@ -54,7 +54,7 @@ int options()
   stroke(0,255,255);
   noFill();
   rect(opt2.rectX, opt2.rectY, opt2.recW, opt2.recH);
-  textSize(opt2.rectX/10);
+  textSize(opt2.rectX/12);
   text(opt2.option, opt2.rectX+10, opt2.rectY + opt2.rectX/10);
     
   
@@ -64,7 +64,7 @@ int options()
     fill(0,200,255);
     rect(opt2.rectX, opt2.rectY, opt2.recW, opt2.recH);
     fill(255,255,255);
-    textSize(opt2.rectX/10);
+    textSize(opt2.rectX/12);
     text(opt2.option, opt2.rectX+10, opt2.rectY + opt2.rectX/10);
     
     
@@ -91,7 +91,7 @@ int options()
   stroke(0,255,255);
   noFill();
   rect(opt3.rectX, opt3.rectY, opt3.recW, opt3.recH);
-  textSize(opt3.rectX/10);
+  textSize(opt3.rectX/12);
   text(opt3.option, opt3.rectX+10, opt3.rectY + opt3.rectX/10);
    
   if((mouseX >= opt3.rectX && mouseX <= opt3.rectX + opt3.recW) && (mouseY >= opt3.rectY && mouseY <= opt3.rectY + opt3.recH))
@@ -100,7 +100,7 @@ int options()
     fill(0,200,255);
     rect(opt3.rectX, opt3.rectY, opt3.recW, opt3.recH);
     fill(255,255,255);
-    textSize(opt3.rectX/10);
+    textSize(opt3.rectX/12);
     text(opt3.option, opt3.rectX+10, opt3.rectY + opt3.rectX/10);
     
     if(mousePressed == true)

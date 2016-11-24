@@ -65,9 +65,9 @@ void drawUi()
   fill(0,255,255);
   rect(b1.x, b1.y, b1.recW, b1.recH);
   fill(255,255,255);
-  textSize(30);
-  textFont(font2);
-  text(b1.option, b1.x + 3, b1.y, b1.recW, b1.recH);
+  textSize(24);
+  textFont(font);
+  text(b1.option, b1.x + 3, b1.y + 10, b1.recW, b1.recH);
   
   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
   {
@@ -158,12 +158,6 @@ void drawUi()
   fuel.uiHeight = 50;
 
   
-  //draw fuel gauge
-  UI fuel = new UI();
-  fuel.x = 200;
-  fuel.y = height/6 - 120;
-  fuel.uiWidth = 250;
-  fuel.uiHeight = 50;
   
   strokeWeight(3);
   stroke(0,255,255);
@@ -222,7 +216,4 @@ void drawUi()
 
       
   } 
-
-  }
-  
 }
