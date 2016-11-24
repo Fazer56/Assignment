@@ -146,7 +146,7 @@ void charts()
   opt1.rectY = height/2 + 270;
   opt1.recW = 100;
   opt1.recH = 100;
-  opt1.option = "Diameter";
+  opt1.option = "Distance";
   
   stroke(0,255,255);
   noFill();
@@ -182,7 +182,7 @@ void charts()
   opt2.rectY = height/2 + 270;
   opt2.recW = opt1.recW;
   opt2.recH = opt1.recH;
-  opt2.option = "Distance";
+  opt2.option = "Diameter";
   
   stroke(0,255,255);
   noFill();

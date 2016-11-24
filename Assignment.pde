@@ -32,7 +32,8 @@ ArrayList<Planet> planets = new ArrayList<Planet>();
 ArrayList<Star> stars = new ArrayList<Star>();
 
 
-int gamestate = -1;
+//int gamestate = -1;
+int gamestate = 0;
 int check = 0;
 
 void draw()
@@ -75,11 +76,11 @@ void menu()
   
   options();
   
-  if(check == 0)
+  if(check == 1)
   {
     drawDiameterBarChart();
   }
-  else if(check ==1)
+  else if(check ==0)
   {
     drawTrendGraph();
   }
@@ -150,6 +151,7 @@ void drawTrendGraph()
   {
     pl1 = planets.get(i);
     pl2 = planets.get(i+1);
+   
     fill(pl1.c);
     strokeWeight(3);
     line(boxX, boxY-pl1.distance*scale, boxX + barW, boxY-pl2.distance*scale );
@@ -157,10 +159,23 @@ void drawTrendGraph()
     fill(255,255,255);
     textSize(18);
     text(pl1.planet, txtX, boxY + 50);
+    
+    if((mouseX >= boxX-15 && mouseX < boxX + 15) && (mouseY >= boxY-pl1.distance*scale -15 && mouseY < boxY-pl1.distance*scale + 15))
+    {
+      pl1.planetInfo();
+    }
+    
     boxX = boxX + barW;
     txtX = txtX + bx;
     
+
+    
+  
+    
+    
   }
+  
+  
   
 }
 
