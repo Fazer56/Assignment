@@ -127,10 +127,17 @@ void drawUi()
   
   if((mouseX >= b3.x && mouseX < b3.x + b1.recW) && (mouseY >= b3.y && mouseY < b3.y + b3.recH))
   {
+
     
     fill(0, 0,255);
     rect(b3.x, b3.y, b3.recW, b3.recH);
     
+
+    
+    fill(0, 0,255);
+    rect(b3.x, b3.y, b3.recW, b3.recH);
+    
+
     if(mousePressed == true)
     {
      
@@ -141,6 +148,7 @@ void drawUi()
     }
     
   }
+
   
   //draw fuel gauge
   UI fuel = new UI();
@@ -148,7 +156,14 @@ void drawUi()
   fuel.y = height/6 - 120;
   fuel.uiWidth = 250;
   fuel.uiHeight = 50;
+
   
+  //draw fuel gauge
+  UI fuel = new UI();
+  fuel.x = 200;
+  fuel.y = height/6 - 120;
+  fuel.uiWidth = 250;
+  fuel.uiHeight = 50;
   
   strokeWeight(3);
   stroke(0,255,255);
@@ -202,7 +217,12 @@ void drawUi()
     if(key == ' ')
     {
       gamestate = 0;
+
     } 
+
+      
+  } 
+
   }
   
 }

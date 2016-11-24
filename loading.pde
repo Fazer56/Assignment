@@ -5,10 +5,12 @@ float yz = 0;
 float tz = 0; 
 float pz = 0;
 
+<<<<<<< HEAD
 float selected = 0;
 
 float selectedX;
 float selectedY;
+
 
 void loading()
 {
@@ -109,6 +111,7 @@ void loading()
   
      yz = -yz;
    }
+<<<<<<< HEAD
    
    //drawStars 
    if(mousePressed == true)
@@ -136,9 +139,5 @@ void loading()
    
 }
    
-
-
-
-
-
   
+}

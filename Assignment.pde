@@ -28,7 +28,9 @@ PFont font, font2, font3;
 Table table;
 
 ArrayList<Planet> planets = new ArrayList<Planet>();
+
 ArrayList<Star> stars = new ArrayList<Star>();
+
 
 int gamestate = -1;
 int check = 0;
@@ -198,6 +200,7 @@ float distMaxVal()
       max = pl2.distance;
       
     }
+
   }
   
   return max;

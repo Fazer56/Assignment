@@ -1,0 +1,9 @@
+planet	distance	diameter	orbitperiod	orbitvel
+Earth	1	12756	1	29.79
+Mercury	0.39	4878	0.24	47.89
+Venus	0.72	12104	0.62	35.03
+Mars	1.52	6787	1.88	24.13
+Jupiter	5.20	142800	11.86	13.06
+Saturn	9.54	120000	29.46	9.64
+Uranus	19.18	51118	84.01	6.81	
+Neptune	30.06	49528	164.8	5.43				
