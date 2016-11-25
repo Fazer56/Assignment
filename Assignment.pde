@@ -9,6 +9,7 @@ void setup()
  
  //load image
  img = loadImage("uni2.jpg");
+
   
  table = loadTable("data.tsv", "header");
  loadPlanetTable();
@@ -17,6 +18,7 @@ void setup()
 }
 
 PImage img;
+
 
 PFont font, font2, font3;
 
@@ -34,6 +36,7 @@ ArrayList<Galaxy> galaxies = new ArrayList<Galaxy>();
 //int gamestate = -1;
 int gamestate = 0;
 int check = 0;
+int image = 0;
 
 void draw()
 {
@@ -42,7 +45,24 @@ void draw()
   println(mouseY);
   
   background(0);
-  image(img, 0, 0);
+  
+  if(image == 0)
+  {
+    image(img, 0, 0);
+    
+  }
+  if(image == 1)
+  {
+    image(img2, 0, 0);
+    
+    
+  }
+  else if(image == 2)
+  {
+   
+    image(img3, 0, 0);
+    
+  }
    
   if(gamestate == -1)
   {

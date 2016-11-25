@@ -207,6 +207,32 @@ void charts()
       check = 1;
     } 
   }
+  
+  //Button to change background Image
+   Button b1 = new Button(width/4, height/1.5, 250, 150, "New Button", width/4 + 30, height/1.5 + 100, 20);
+   
+   b1.drawButton();
+   
+   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
+   {
+    
+     if(mousePressed == true)
+     {
+       
+       image++;
+       
+       if(image > 2)
+       {
+         image = 0;
+         
+       }
+     
+       
+     }
+     
+   } 
+  
+  
   noFill();
   stroke(0, 255, 255);
   ellipse(mouseX, mouseY, 20, 20);
