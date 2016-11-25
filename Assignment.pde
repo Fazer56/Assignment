@@ -9,7 +9,9 @@ void setup()
  
  //load image
  img = loadImage("uni2.jpg");
-
+ img2 = loadImage("uni3.jpg");
+ img3 = loadImage("uni4.jpg");
+ 
   
  table = loadTable("data.tsv", "header");
  loadPlanetTable();
@@ -18,7 +20,8 @@ void setup()
 }
 
 PImage img;
-
+PImage img2;
+PImage img3;
 
 PFont font, font2, font3;
 
