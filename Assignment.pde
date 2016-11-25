@@ -28,9 +28,8 @@ PFont font, font2, font3;
 Table table;
 
 ArrayList<Planet> planets = new ArrayList<Planet>();
-
 ArrayList<Star> stars = new ArrayList<Star>();
-
+ArrayList<Galaxy> galaxies = new ArrayList<Galaxy>();
 
 //int gamestate = -1;
 int gamestate = 0;
@@ -55,6 +54,7 @@ void draw()
   {
     menu();
     charts();
+    drawGalaxy();
   }
   
   else if (gamestate == 1)
@@ -220,3 +220,7 @@ float distMaxVal()
   
   return max;
 }
+
+
+   
+  

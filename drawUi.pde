@@ -1,5 +1,6 @@
 float gauge = 248;
 float counter = 100;
+boolean refill = false;
 
 void drawUi()
 {
@@ -9,6 +10,8 @@ void drawUi()
   UI right = new UI();
   
   background(1,34,50);
+  
+  ellipse(mouseX, mouseY, 10, 10);  
   //bottom half of screen
   bottom.x = 0;
   bottom.y = height/1.5;
@@ -82,6 +85,7 @@ void drawUi()
       fill(0,255,0);
       rect(b1.x, b1.y, b1.recW, b1.recH);
       rect(b1.x+2, b1.y+2, b1.recW, b1.recH);
+      refill = true;
       
       
     }
@@ -181,6 +185,12 @@ void drawUi()
     {
      
       gauge = 0;
+      
+    }
+    if(refill == true)
+    {
+      counter = 100;
+      
       
     }
     

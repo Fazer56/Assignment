@@ -58,7 +58,7 @@ void loading()
   
   
   
-  if(frameCount %3 ==0)
+  if(frameCount %6 ==0)
   {
     load++;
     

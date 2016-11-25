@@ -2,7 +2,7 @@ int options()
 {
   
   /* FIRST BUTTON */
-  
+ 
   Button opt1;
   opt1 = new Button();
   
@@ -41,7 +41,7 @@ int options()
      
   
   /* SECOND BUTTON */
-  
+ 
   Button opt2;
   opt2 = new Button();
   

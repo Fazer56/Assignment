@@ -46,7 +46,7 @@ class Planet
     fill(255,255,255);
     textSize(30);
     text("The planet " + planet, 1000, 160);
-    textSize(24);
+    textSize(21);
     text("\nDistance from the Sun (Astronical Units): " + distance, 1000, 200);
     text("\nDiameter in kilometers: " + diameter, 1000, 250);
     text("\nOrbit Period in Earth years: " + orbitperiod, 1000, 300);
