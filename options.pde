@@ -1,3 +1,7 @@
+float imgWMove = 0;
+float imgTMove = 1;
+float imgHMove = 0;
+
 int options()
 {
   
@@ -209,28 +213,36 @@ void charts()
   }
   
   //Button to change background Image
-   Button b1 = new Button(width/4, height/1.5, 250, 150, "New Button", width/4 + 30, height/1.5 + 100, 20);
+   Button b1 = new Button(width/3, height/2, imgWMove, imgHMove, "EXPLODING STAR!!", width/3 + 30, height/2 + 25, imgTMove);
+   Button b2 = new Button(width/3, height/2 + 50, imgWMove, imgHMove, "GALAXY!!", width/3 + 30, height/2 + 75, imgTMove);
+   Button b3 = new Button(width/3, height/2 + 100, imgWMove, imgHMove, "THE UNIVERSE!!", width/3 + 30, height/2 + 125, imgTMove);
    
    b1.drawButton();
+   b2.drawButton();
+   b3.drawButton();
    
-   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
+   imgWMove ++;
+   imgTMove +=0.1;
+   imgHMove ++;
+   
+   if(imgWMove >= 220)
    {
-    
-     if(mousePressed == true)
-     {
-       
-       image++;
-       
-       if(image > 2)
-       {
-         image = 0;
-         
-       }
+     imgWMove = 220;
      
-       
-     }
+   }
+   println(imgWMove);
+   
+   if(imgHMove >= 50)
+   {
+     imgHMove = 50;
      
-   } 
+   }
+   
+   if(imgTMove >= 20)
+   {
+     imgTMove = 20;
+     
+   }
   
   
   noFill();

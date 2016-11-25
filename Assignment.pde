@@ -15,7 +15,7 @@ void setup()
   
  table = loadTable("data.tsv", "header");
  loadPlanetTable();
- smooth();
+ 
   
 }
 
@@ -44,8 +44,6 @@ int image = 0;
 void draw()
 {
   
-  println(mouseX);
-  println(mouseY);
   
   background(0);
   
@@ -76,8 +74,8 @@ void draw()
   else if(gamestate == 0)
   {
     menu();
-    charts();
-    drawGalaxy();
+    
+    //drawGalaxy();
   }
   
   else if (gamestate == 1)
@@ -98,6 +96,7 @@ void menu()
   
   
   options();
+  charts();
   
   if(check == 1)
   {
@@ -185,6 +184,7 @@ void drawTrendGraph()
     
     if((mouseX >= boxX-15 && mouseX < boxX + 15) && (mouseY >= boxY-pl1.distance*scale -15 && mouseY < boxY-pl1.distance*scale + 15))
     {
+      background(0);
       pl1.planetInfo();
     }
     

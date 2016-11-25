@@ -8,7 +8,7 @@ class Button
   float recW;
   float recH;
   String option;
-  int txtSize;
+  float txtSize;
   float txtX;
   float txtY;
   
@@ -18,7 +18,7 @@ class Button
   }
   
   //paremeterised constructor
-  Button(float x, float y, float bWidth, float bHeight, String bName, float txX, float txY, int txt)
+  Button(float x, float y, float bWidth, float bHeight, String bName, float txX, float txY, float txt)
   {
     this.x = x;
     this.y = y;
