@@ -36,8 +36,8 @@ ArrayList<Planet> planets = new ArrayList<Planet>();
 ArrayList<Star> stars = new ArrayList<Star>();
 ArrayList<Galaxy> galaxies = new ArrayList<Galaxy>();
 
-//int gamestate = -1;
-int gamestate = 0;
+int gamestate = -1;
+//int gamestate = 0;
 int check = 0;
 int image = 0;
 
@@ -184,9 +184,14 @@ void drawTrendGraph()
     
     if((mouseX >= boxX-15 && mouseX < boxX + 15) && (mouseY >= boxY-pl1.distance*scale -15 && mouseY < boxY-pl1.distance*scale + 15))
     {
+      
       background(0);
       pl1.planetInfo();
+      
+      
+      
     }
+    
     
     boxX = boxX + barW;
     txtX = txtX + bx;

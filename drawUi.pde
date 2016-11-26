@@ -1,3 +1,5 @@
+//SPACESHIPCOCKPIT
+
 float gauge = 248;
 float counter = 100;
 boolean refill = false;
@@ -10,6 +12,8 @@ void drawUi()
   UI right = new UI();
   
   background(1,34,50);
+  
+  
   
   ellipse(mouseX, mouseY, 10, 10);  
   //bottom half of screen
@@ -86,7 +90,6 @@ void drawUi()
       rect(b1.x, b1.y, b1.recW, b1.recH);
       rect(b1.x+2, b1.y+2, b1.recW, b1.recH);
       refill = true;
-      
       
     }
     
@@ -178,7 +181,7 @@ void drawUi()
   
    if(frameCount % 12 == 0)
    {
-    gauge-=2;
+    gauge-=2.5;
     counter--;
     
     if(gauge <= 0)
@@ -189,8 +192,9 @@ void drawUi()
     }
     if(refill == true)
     {
+      gauge = 248;
       counter = 100;
-      
+      refill = false;
       
     }
     
@@ -209,12 +213,14 @@ void drawUi()
         noFill();
         stroke(255,0,0);
         rect(width/2 -150, height/2 - 40, 300, 150); 
-        fill(255,0,0);
+        fill(random(100,255),0,0);
         textFont(font, 25);
         text("Warning ! \n Fuel Low ! \nSwitch to\nEngine room to refuel !", width/2 - 130, height/2);
       
       
    }
+   
+   planMap();
   
   if(keyPressed == true)
   {
@@ -226,4 +232,39 @@ void drawUi()
 
       
   } 
+}
+
+float[] trend = { random(0,50), random(0, 50), random(0, 50), random(0, 50), random(0, 50), random(0, 50), random(0, 50), random(0, 50), random(0, 50), random(0, 50)};
+
+void planMap()
+{
+  UI trd = new UI(width/1.5-50, 100, 40, 15);
+  
+  for(int i =0; i < trend.length-1; i ++)
+  {
+    strokeWeight(3);
+    stroke(255,255,255);
+    fill(255,0,0);
+    ellipse(trd.x, trd.y - trend[i], trd.uiHeight, trd.uiHeight);
+    line(trd.x, trd.y - trend[i], trd.x + trd.uiWidth, trd.y - trend[i+1]);
+    trd.x += trd.uiWidth;
+    
+    if(mouseX >=trd.x && mouseX <= trd.x + trd.uiHeight && mouseY >= trd.y - trend[i] && mouseY <= trd.y - trend[i] + trd.uiHeight)
+    {
+      
+      
+      
+      
+    }
+    
+  }
+  
+  textSize(30);
+  text("Linear Planetary Map", trd.x - 700, trd.y);
+  noFill();
+  rect(trd.x - 400, trd.y + 20, 500, -100);
+  
+ 
+  
+  
 }

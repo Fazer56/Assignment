@@ -2,8 +2,13 @@ float imgWMove = 0;
 float imgTMove = 1;
 float imgHMove = 0;
 
-int options()
+float mv1 =0;
+float mv2 = 0;
+float mv3 = 0;
+
+void options()
 {
+  
   
   /* FIRST BUTTON */
  
@@ -18,20 +23,20 @@ int options()
   
   stroke(0,255,255);
   noFill();
-  rect(opt1.rectX, opt1.rectY, opt1.recW, opt1.recH);
+  rect(opt1.rectX, mv1, opt1.recW, opt1.recH);
   textFont(font2);
   textSize(opt1.rectX/12);
-  text(opt1.option, opt1.rectX+10, opt1.rectY + opt1.rectX/10);
+  text(opt1.option, opt1.rectX+10, mv1 + opt1.rectX/10);
   
    
   if((mouseX >= opt1.rectX && mouseX <= opt1.rectX + opt1.recW) && (mouseY >= opt1.rectY && mouseY <= opt1.rectY + opt1.recH))
   {
    
     fill(0,200,255);
-    rect(opt1.rectX, opt1.rectY, opt1.recW, opt1.recH);
+    rect(opt1.rectX, mv1, opt1.recW, opt1.recH);
     fill(255,255,255);
     textSize(opt1.rectX/12);
-    text(opt1.option, opt1.rectX+10, opt1.rectY+ opt1.rectX/10);
+    text(opt1.option, opt1.rectX+10, mv1+ opt1.rectX/10);
     
     if(mousePressed == true)
     {
@@ -39,6 +44,14 @@ int options()
       
       
     }
+    
+  }
+  
+  mv1++;
+  
+  if(mv1 >= opt1.rectY)
+  {
+    mv1 = opt1.rectY;
     
   }
     
@@ -57,19 +70,19 @@ int options()
   
   stroke(0,255,255);
   noFill();
-  rect(opt2.rectX, opt2.rectY, opt2.recW, opt2.recH);
+  rect(mv2, opt2.rectY, opt2.recW, opt2.recH);
   textSize(opt2.rectX/12);
-  text(opt2.option, opt2.rectX+10, opt2.rectY + opt2.rectX/10);
+  text(opt2.option, mv2+10, opt2.rectY + opt2.rectX/10);
     
   
   if((mouseX >= opt2.rectX && mouseX <= opt2.rectX + opt2.recW) && (mouseY >= opt2.rectY && mouseY <= opt2.rectY + opt2.recH))
   {
    
     fill(0,200,255);
-    rect(opt2.rectX, opt2.rectY, opt2.recW, opt2.recH);
+    rect(mv2, opt2.rectY, opt2.recW, opt2.recH);
     fill(255,255,255);
     textSize(opt2.rectX/12);
-    text(opt2.option, opt2.rectX+10, opt2.rectY + opt2.rectX/10);
+    text(opt2.option, mv2+10, opt2.rectY + opt2.rectX/10);
     
     
     
@@ -78,7 +91,13 @@ int options()
       gamestate = 2;
     }
     
-    
+  }
+  
+  mv2+=3.5;
+  
+  if(mv2 >= opt1.rectX)
+  {
+    mv2 = opt1.rectX;
     
   }
   
@@ -114,7 +133,7 @@ int options()
     
   }
   
-  return gamestate;
+  //return gamestate;
 }
 
 //load planet information into planets arraylist
@@ -216,10 +235,48 @@ void charts()
    Button b1 = new Button(width/3, height/2, imgWMove, imgHMove, "EXPLODING STAR!!", width/3 + 30, height/2 + 25, imgTMove);
    Button b2 = new Button(width/3, height/2 + 50, imgWMove, imgHMove, "GALAXY!!", width/3 + 30, height/2 + 75, imgTMove);
    Button b3 = new Button(width/3, height/2 + 100, imgWMove, imgHMove, "THE UNIVERSE!!", width/3 + 30, height/2 + 125, imgTMove);
+
    
    b1.drawButton();
    b2.drawButton();
    b3.drawButton();
+   
+      
+   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
+   {
+    
+     if(mousePressed == true)
+     {
+       
+       image = 0;
+         
+     }
+     
+   } 
+   
+   if((mouseX >= b2.x && mouseX < b2.x + b2.recW) && (mouseY >= b2.y && mouseY < b2.y + b2.recH))
+   {
+    
+     if(mousePressed == true)
+     {
+       
+       image = 1;
+         
+     }
+     
+   } 
+   
+   if((mouseX >= b3.x && mouseX < b3.x + b3.recW) && (mouseY >= b3.y && mouseY < b3.y + b3.recH))
+   {
+    
+     if(mousePressed == true)
+     {
+       
+       image = 2;
+         
+     }
+     
+   } 
    
    imgWMove ++;
    imgTMove +=0.1;
@@ -230,7 +287,7 @@ void charts()
      imgWMove = 220;
      
    }
-   println(imgWMove);
+  
    
    if(imgHMove >= 50)
    {

@@ -72,8 +72,11 @@ class Planet
     if(pMove >= 800)
     {
       pMove = 800;
+      
+      
    
     }
+    
     
   }
  
