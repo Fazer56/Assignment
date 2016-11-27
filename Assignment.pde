@@ -46,8 +46,8 @@ ArrayList<Planet> planets = new ArrayList<Planet>();
 ArrayList<Star> stars = new ArrayList<Star>();
 ArrayList<Galaxy> galaxies = new ArrayList<Galaxy>();
 
-//int gamestate = -1;
-int gamestate = 0;
+int gamestate = -1;
+//int gamestate = 0;
 int check = 0;
 int image = 1;
 
@@ -115,12 +115,22 @@ void draw()
 
 void drawStarsGrid()
 {
+  
+  Star str = new Star();
+  
+  float xc;
+  float yc;
+  
+
+  
   float x = width/4;
   float y = 100;
   float lineY = y;
   float lineX = x;
   float lineW = 80;
   float lineH = 80;
+  float border = x + 800;
+  float borderH = y + 800;
   
   fill(0);
   rect(width/4 - lineW, 100 - lineW, 1000, 1000);
@@ -133,9 +143,25 @@ void drawStarsGrid()
     lineY+=lineH;
     lineX+=lineW;
     
-    
+  }
+  
+  for(int i =0; i < stars.size(); i++)
+  {
+    str = stars.get(i);
+    xc = map(str.x, 0, width, 80, border);
+    yc = map(str.y, 0, height, 80, borderH);
+    stroke(255,255,0);
+    line( xc, yc, xc + 10, yc);
+    line( xc +5, yc -5, xc +5, yc +5);
+    stroke(255,0,0);
+    noFill();
+    ellipse(xc + 5, yc, 20, 20);
+    fill(255,255,255);
+    textAlign(LEFT, CENTER);
+    text(xc, xc + 20, yc);
     
   }
+  
   
   if(keyPressed == true)
   {
