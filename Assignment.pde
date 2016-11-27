@@ -133,6 +133,7 @@ void drawStarsGrid()
   float borderH = y + 800;
   
   fill(0);
+  stroke(random(0,255), 100, (random(255)));
   rect(width/4 - lineW, 100 - lineW, 1000, 1000);
   
   for(int i = 0; i < 11; i ++)
@@ -148,12 +149,12 @@ void drawStarsGrid()
   for(int i =0; i < stars.size(); i++)
   {
     str = stars.get(i);
-    xc = map(str.x, 0, width, 80, border);
-    yc = map(str.y, 0, height, 80, borderH);
+    xc = map(str.x, 0, width, x, border);
+    yc = map(str.y, 0, height, y, borderH);
     stroke(255,255,0);
     line( xc, yc, xc + 10, yc);
     line( xc +5, yc -5, xc +5, yc +5);
-    stroke(255,0,0);
+    stroke(0,255,255);
     noFill();
     ellipse(xc + 5, yc, 20, 20);
     fill(255,255,255);
