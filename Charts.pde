@@ -3,7 +3,7 @@ void charts()
   
   //Button 1
   textFont(font3);
-  Button opt1 = new Button(width/1.5 + 20, height/2 + 270, 100, 100, "Distance", width/1.5 + 30, height/2 + 330, 20);
+  Button opt1 = new Button(width/1.5 + 20, height/2 + 270, 100, 100, "Distance", width/1.5 + 30, height/2 + 330, 20, color(45, 60, 105), color(0,255,255));
   
    opt1.drawButton();
    
@@ -21,7 +21,7 @@ void charts()
   }
   
   //Button 2
-  Button opt2 = new Button(opt1.x + 200, height/2 + 270, 100, 100, "Diameter", opt1.x + 210, height/2 + 330, 20);
+  Button opt2 = new Button(opt1.x + 200, height/2 + 270, 100, 100, "Diameter", opt1.x + 210, height/2 + 330, 20, color(45, 60, 105), color(0,255,255));
   opt2.drawButton();
   
   if((mouseX >= opt2.x && mouseX <= opt2.x + opt2.recW) && (mouseY >= opt2.y && mouseY <= opt2.y + opt2.recH))
@@ -34,9 +34,9 @@ void charts()
   }
   
   //Button to change background Image
-   Button b1 = new Button(width/3, height/2, imgWMove, imgHMove, "!GALAXY!!", width/3 + 30, height/2 + 25, imgTMove);
-   Button b2 = new Button(width/3, height/2 + 50, imgWMove, imgHMove, "EXPLODING STAR", width/3 + 30, height/2 + 75, imgTMove);
-   Button b3 = new Button(width/3, height/2 + 100, imgWMove, imgHMove, "THE UNIVERSE!!", width/3 + 30, height/2 + 125, imgTMove);
+   Button b1 = new Button(width/3, height/2, imgWMove, imgHMove, "!GALAXY!!", width/3 + 30, height/2 + 25, imgTMove, color(45, 60, 105), color(0,255,255));
+   Button b2 = new Button(width/3, height/2 + 50, imgWMove, imgHMove, "EXPLODING STAR", width/3 + 30, height/2 + 75, imgTMove, color(45, 60, 105), color(0,255,255));
+   Button b3 = new Button(width/3, height/2 + 100, imgWMove, imgHMove, "THE UNIVERSE!!", width/3 + 30, height/2 + 125, imgTMove, color(45, 60, 105), color(0,255,255));
    
    b1.drawButton();
    b2.drawButton();

@@ -1,5 +1,4 @@
 //SPACESHIPCOCKPIT
-
 float gauge = 248;
 float counter = 100;
 boolean refill = false;
@@ -56,38 +55,18 @@ void drawUi()
   arc(1915, 180, 465 , 180, radians(180), radians(270));
   arc(1915, 720, 465 , 180, radians(90), radians(180));
   
-  //draw some buttons on screen
-  Button b1 = new Button();
-  Button b2 = new Button();
-  Button b3 = new Button();
-  
+  //draw some buttons on screen 
   //Button 1 
-  b1.x = width/4;
-  b1.y = height/1.4;
-  b1.recW = 200;
-  b1.recH = 100;
-  b1.option = "REFUEL";
-  
-  noStroke();
-  fill(0,255,255);
-  rect(b1.x, b1.y, b1.recW, b1.recH);
-  fill(255,255,255);
-  textSize(24);
   textFont(font);
-  text(b1.option, b1.x + 3, b1.y + 10, b1.recW, b1.recH);
+  Button b1 = new Button(width/4, height/1.4, 200, 100, "REFUEL", width/4 + 5, height/1.4 + 50, 28, color(255,0, 0), color(45, 60, 105));
+  b1.drawButton();
   
   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
   {
     
-    fill(0,255,0);
-    rect(b1.x, b1.y, b1.recW, b1.recH);
-    fill(255,255,255);
-    text(b1.option, b1.x + 3, b1.y, b1.recW, b1.recH);
-    
     if(mousePressed == true)
     {
-      fill(0,255,0);
-      rect(b1.x, b1.y, b1.recW, b1.recH);
+      fill(45, 60, 105);
       rect(b1.x+2, b1.y+2, b1.recW, b1.recH);
       refill = true;
       
@@ -96,62 +75,35 @@ void drawUi()
   }
   
   //Button 2 
-  b2.x = b1.x + 300;
-  b2.y = height/1.4;
-  b2.recW = b1.recW;
-  b2.recH = 100;
-  
-  noStroke();
-  fill(0,255,255);
-  rect(b2.x, b2.y, b2.recW, b2.recH);
+  Button b2 = new Button(b1.x + 300, b1.y, 200, 100, "SOUNDWAVE", b1.x + 305, b1.txtY, 28, color(0, 255, 0), color (45, 60, 105));
+  b2.drawButton();
   
   if((mouseX >= b2.x && mouseX < b2.x + b1.recW) && (mouseY >= b2.y && mouseY < b2.y + b2.recH))
   {
     
-    fill(255, 0,0);
-    rect(b2.x, b2.y, b2.recW, b2.recH);
-    
     if(mousePressed == true)
     {
      
-      rect(b2.x, b2.y, b2.recW, b2.recH);
-      rect(b2.x+2, b2.y+2, b2.recW, b2.recH);
-      
+      fill(45, 60, 105);
+      rect(b2.x+2, b2.y+2, b2.recW, b2.recH);  
       
     }
     
   }
   
   //Button 3
-  b3.x = b2.x + 300;
-  b3.y = height/1.4;
-  b3.recW = b1.recW;
-  b3.recH = 100;
-  
-  noStroke();
-  fill(0,255,255);
-  rect(b3.x, b3.y, b3.recW, b3.recH);
+  Button b3 = new Button(b2.x + 300, b1.y, 200, 100, "NAVIGATION", b2.x + 305, b1.txtY, 28, color(180, 20, 220), color (45, 60, 105));
+  b3.drawButton();
+
   
   if((mouseX >= b3.x && mouseX < b3.x + b1.recW) && (mouseY >= b3.y && mouseY < b3.y + b3.recH))
   {
-
-    
-    fill(0, 0,255);
-    rect(b3.x, b3.y, b3.recW, b3.recH);
-    
-
-    
-    fill(0, 0,255);
-    rect(b3.x, b3.y, b3.recW, b3.recH);
-    
-
     if(mousePressed == true)
     {
      
-      rect(b3.x, b3.y, b3.recW, b3.recH);
+      fill(45, 60, 105);
       rect(b3.x+2, b3.y+2, b3.recW, b3.recH);
-      
-      
+       
     }
     
   }
