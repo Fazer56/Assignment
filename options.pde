@@ -88,7 +88,7 @@ void options()
     
     if(mousePressed == true)
     {
-      gamestate = 2;
+      //gamestate = 2;
     }
     
   }

@@ -82,6 +82,12 @@ void draw()
     
     drawUi();
     
+    if(choice == 1)
+    {
+      navDials();
+      
+    }
+    
     
   }
   

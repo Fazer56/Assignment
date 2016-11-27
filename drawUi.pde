@@ -2,8 +2,7 @@
 float gauge = 248;
 float counter = 100;
 boolean refill = false;
-
-
+float choice = 0;
 float move = 0;
 float move2 = 0;
 float move3 = 0;
@@ -11,6 +10,7 @@ float move4 = 0;
 float move5 = 0;
 float move6 = 0;
 boolean lie = false;
+float arctheta = 0;
 
 void drawUi()
 {
@@ -21,7 +21,7 @@ void drawUi()
   
   background(1,34,50);
   
-  navDials();
+ 
   
   ellipse(mouseX, mouseY, 10, 10);  
   //bottom half of screen
@@ -112,16 +112,13 @@ void drawUi()
      
       fill(45, 60, 105);
       rect(b3.x+2, b3.y+2, b3.recW, b3.recH);
+      choice = 1;
        
     }
     
   }
 
  
- //draw radar
- 
-  
-  
   //draw fuel gauge
   UI fuel = new UI();
   fuel.x = 200;
@@ -129,7 +126,6 @@ void drawUi()
   fuel.uiWidth = 250;
   fuel.uiHeight = 50;
 
-  
   
   strokeWeight(3);
   stroke(0,255,255);
@@ -167,7 +163,7 @@ void drawUi()
     {
      
       counter = 0;
-      
+      choice = 0;
     }
     
    }
@@ -177,11 +173,16 @@ void drawUi()
       
         noFill();
         stroke(255,0,0);
-        rect(width/2 -150, height/2 - 40, 300, 150); 
+        rect(width/2 -150, height/2 - 40, 400, 200); 
         fill(random(100,255),0,0);
-        textFont(font, 25);
-        text("Warning ! \n Fuel Low ! \nSwitch to\nEngine room to refuel !", width/2 - 130, height/2);
-      
+        textFont(font, 30);
+        text("Warning ! \nFuel Low ! \nNAVIGATION GOING OFFLINE \nREFUEL NOW!!!", width/2 - 130, height/2);
+        textSize(40);
+        
+        if(frameCount % 12 == 0)
+        {
+          navDials();
+        }
       
    }
    
@@ -241,13 +242,13 @@ void planMap()
 void navDials()
 {
  
- Radar r = new Radar(width/2, height - 120, 110, 0.1);
+ Radar r = new Radar(width/2 - 50, height - 120, 110, 0.1);
  r.update();
  r.render();
  
  
  UI radar = new UI();
- radar.x = width/2;
+ radar.x = width/2 - 50;
  radar.y = height - 120;
  radar.uiWidth = 220;
  
@@ -272,10 +273,11 @@ void navDials()
  float lineH = 15;
  
  
- //////////////////////////////////////////////////////////////////////////////
  fill(45, 60, 105);
  rect(life.x-30, life.y-50, 300, 150);
-
+ fill(255,255,255);
+ text("PULSE", life.x + 70, life.y -60);
+ 
  stroke(0,255,255);
  for(int i = 0; i < 10; i++)
  {
@@ -339,5 +341,87 @@ void navDials()
    lie = false;
    
  }
+ 
+ UI ui1 = new UI(width/8, height/1.05, 20, random(1, 60));
+ UI ui2 = new UI(width/4, height - 100, 150, 150);
+ UI ui3 = new UI(width/9, height/1.05, 20, random(1, 90));
+ UI ui4 = new UI(width/10, height/1.05, 20, random(1, 40));
+ 
+ 
+ float cx = 0;
+ float cy = 0;
+ float radius = 50;
+ 
+ cx = ui2.x + sin(arctheta) * radius;
+ cy = ui2.y + cos(arctheta) * radius;
+ 
+ strokeWeight(6);
+ 
+
+ 
+ noFill();
+ pushMatrix();
+ translate(ui2.x, ui2.y);
+ rotate(arctheta);
+ arc(10, 10, ui2.uiWidth + 10, ui2.uiHeight + 10, radians(0), radians(30));
+ popMatrix();
+ 
+ noFill();
+ pushMatrix();
+ translate(ui2.x, ui2.y);
+ rotate(-arctheta);
+ arc(10, 10, ui2.uiWidth, ui2.uiHeight, radians(60), radians(90));
+ popMatrix();
+ 
+ noFill();
+ pushMatrix();
+ translate(ui2.x, ui2.y);
+ rotate(arctheta);
+ arc(10, 10, ui2.uiWidth - 10, ui2.uiHeight - 10, radians(90), radians(120));
+ popMatrix();
+ 
+ noFill();
+ pushMatrix();
+ translate(ui2.x, ui2.y);
+ rotate(-arctheta + 20);
+ arc(10, 10, ui2.uiWidth - 20, ui2.uiHeight - 20, radians(120), radians(150));
+ popMatrix();
+ 
+ noFill();
+ pushMatrix();
+ translate(ui2.x, ui2.y);
+ rotate(arctheta);
+ arc(10, 10, ui2.uiWidth - 30, ui2.uiHeight - 30, radians(150), radians(210));
+ popMatrix();
+ 
+ noFill();
+ pushMatrix();
+ translate(ui2.x, ui2.y);
+ rotate(-arctheta);
+ arc(10, 10, ui2.uiWidth - 40, ui2.uiHeight - 40, radians(210), radians(240));
+ popMatrix();
+ 
+ noFill();
+ pushMatrix();
+ translate(ui2.x, ui2.y);
+ rotate(-arctheta);
+ arc(10, 10, ui2.uiWidth - 50, ui2.uiHeight - 50, radians(330), radians(360));
+ popMatrix();
+ 
+ fill(250,0,0);
+ ellipse(width/4, height - 100, 75, 75);
+ 
+ 
+ strokeWeight(2);
+ 
+ arctheta+=.05;
+ 
+ fill(0,0,255);
+ rect(ui1.x, ui1.y, ui1.uiWidth, -ui1.uiHeight);
+ rect(ui3.x, ui3.y, ui3.uiWidth, -ui3.uiHeight);
+ rect(ui4.x, ui4.y, ui4.uiWidth, -ui4.uiHeight);
+ fill(255,255,255);
+ text("CABIN PRESSURE", ui1.x - 100, ui1.y + 30);
+
   
 }
