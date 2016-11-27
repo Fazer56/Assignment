@@ -94,7 +94,9 @@ void drawUi()
     {
      
       fill(45, 60, 105);
-      rect(b2.x+2, b2.y+2, b2.recW, b2.recH);  
+      rect(b2.x+2, b2.y+2, b2.recW, b2.recH);
+      
+      choice = 2;
       
     }
     
@@ -194,9 +196,7 @@ void drawUi()
     {
       gamestate = 0;
 
-    } 
-
-      
+    }   
   } 
 }
 
@@ -423,5 +423,19 @@ void navDials()
  fill(255,255,255);
  text("CABIN PRESSURE", ui1.x - 100, ui1.y + 30);
 
+  
+}
+
+void soundWave()
+{
+   for (int i = 0; i < tune.bufferSize() - 1; i++)
+  {
+    float x1 = map(i, 0, tune.bufferSize(), width/2 - 200, width/2 + 200);
+    float x2 = map(i+1, 0, tune.bufferSize(),width/2 - 200, width/2 + 200);
+    line(x1, height - 50 - tune.mix.get(i)*200, x2,  height - 50 - tune.mix.get(i+1)*200);
+    line(x1, height - 150 - tune.mix.get(i)*200, x2, height - 150 - tune.mix.get(i+1)*200);
+    
+  }
+ 
   
 }

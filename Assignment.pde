@@ -1,3 +1,5 @@
+import ddf.minim.*;
+
 void setup()
 {
   fullScreen(P3D);
@@ -12,12 +14,20 @@ void setup()
  img2 = loadImage("uni3.jpg");
  img3 = loadImage("uni4.jpg");
  
-  
+ //load data 
  table = loadTable("data.tsv", "header");
  loadPlanetTable();
  
+ //load music
+  minim = new Minim(this);
   
+  tune = minim.loadFile ("Richard Strauss- Also sprach Zarathustra (1) Zubin Mehta.mp3");
+  
+  tune.play();
 }
+
+Minim minim;
+AudioPlayer tune;
 
 PImage img;
 PImage img2;
@@ -87,14 +97,56 @@ void draw()
       navDials();
       
     }
-    
-    
+    if(choice == 2)
+    {
+     
+      soundWave();
+      
+    }
+  }
+  else if(gamestate == 2)
+  {
+    drawStarsGrid();
   }
   
   
 
 }
 
+void drawStarsGrid()
+{
+  float x = width/4;
+  float y = 100;
+  float lineY = y;
+  float lineX = x;
+  float lineW = 80;
+  float lineH = 80;
+  
+  fill(0);
+  rect(width/4 - lineW, 100 - lineW, 1000, 1000);
+  
+  for(int i = 0; i < 11; i ++)
+  {
+    line(x, lineY, x + 800, lineY);
+    line(lineX, y, lineX, y + 800);
+    
+    lineY+=lineH;
+    lineX+=lineW;
+    
+    
+    
+  }
+  
+  if(keyPressed == true)
+  {
+    if(key == ' ')
+    {
+      gamestate = 0;
+
+    }   
+  } 
+  
+}
 
 void menu()
 {
@@ -109,7 +161,7 @@ void menu()
   drawGalaxy();
   options();
   charts();
- 
+  
   
   if(check == 1)
   {
@@ -119,6 +171,7 @@ void menu()
   {
     drawTrendGraph();
   }
+  
   
    
 }

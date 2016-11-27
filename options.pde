@@ -88,7 +88,7 @@ void options()
     
     if(mousePressed == true)
     {
-      //gamestate = 2;
+      gamestate = 2;
     }
     
   }
@@ -135,6 +135,8 @@ void options()
   
   //return gamestate;
 }
+
+
 
 //load planet information into planets arraylist
 void loadPlanetTable()
