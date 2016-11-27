@@ -3,7 +3,7 @@ void charts()
   
   //Button 1
   textFont(font3);
-  Button opt1 = new Button(width/1.5 + 20, height/2 + 270, 100, 100, "Distance", width/1.5 + 30, height/2 + 330, 20, color(45, 60, 105), color(0,255,255));
+  Button opt1 = new Button(width/1.5 + 20, height/2 + 270, 100, 100, "Distance", width/1.5 + 30, height/2 + 330, 20, color(45, 60, 105), color(0,200,255));
   
    opt1.drawButton();
    
@@ -21,7 +21,7 @@ void charts()
   }
   
   //Button 2
-  Button opt2 = new Button(opt1.x + 200, height/2 + 270, 100, 100, "Diameter", opt1.x + 210, height/2 + 330, 20, color(45, 60, 105), color(0,255,255));
+  Button opt2 = new Button(opt1.x + 200, height/2 + 270, 100, 100, "Diameter", opt1.x + 210, height/2 + 330, 20, color(45, 60, 105), color(0,200,255));
   opt2.drawButton();
   
   if((mouseX >= opt2.x && mouseX <= opt2.x + opt2.recW) && (mouseY >= opt2.y && mouseY <= opt2.y + opt2.recH))
@@ -34,9 +34,9 @@ void charts()
   }
   
   //Button to change background Image
-   Button b1 = new Button(width/3, height/2, imgWMove, imgHMove, "!GALAXY!!", width/3 + 30, height/2 + 25, imgTMove, color(45, 60, 105), color(0,255,255));
-   Button b2 = new Button(width/3, height/2 + 50, imgWMove, imgHMove, "EXPLODING STAR", width/3 + 30, height/2 + 75, imgTMove, color(45, 60, 105), color(0,255,255));
-   Button b3 = new Button(width/3, height/2 + 100, imgWMove, imgHMove, "THE UNIVERSE!!", width/3 + 30, height/2 + 125, imgTMove, color(45, 60, 105), color(0,255,255));
+   Button b1 = new Button(width/3, height/2, imgWMove, imgHMove, "GALAXY!!", width/3 + 30, height/2 + 25, imgTMove, color(45, 60, 105), color(0,200,255));
+   Button b2 = new Button(width/3, height/2 + 50, imgWMove, imgHMove, "EXPLODING STAR", width/3 + 30, height/2 + 75, imgTMove, color(45, 60, 105), color(0,200,255));
+   Button b3 = new Button(width/3, height/2 + 100, imgWMove, imgHMove, "THE UNIVERSE!!", width/3 + 30, height/2 + 125, imgTMove, color(45, 60, 105), color(0,200,255));
    
    b1.drawButton();
    b2.drawButton();
@@ -110,9 +110,10 @@ void charts()
 
 float movChartX = 0; 
 float movChartY = 0; 
+float ltheta = 0;
 
 //draw Graphs and barchart
-void drawTrendGraph()
+void graphRect()
 {
   float x = width/2 + 20;
   float y = 10;
@@ -124,16 +125,41 @@ void drawTrendGraph()
   float scale = (boxH-250)/distMaxVal(); 
   float bx = barW + 10;
   float txtX = boxX;
+  float cx;
+  float cy;
+  float radius = 50;
   
   strokeWeight(2);
-  noFill();
+  fill(0);
   rect(x, y , movChartX, movChartY);
-  textFont(font2);
-  textSize(40);
-  text("Planetary Orbit Velocity", boxX + 40, 80);
   
-  movChartX++;
-  movChartY++;
+  
+  movChartX+=2.3;
+  movChartY+=2;
+  
+  if(movChartX < boxW)
+  {
+   
+    
+    cx = (width/2 + 50) + sin(ltheta) * radius;
+    cy = (height/2 + 30) + cos(ltheta) * radius;
+    
+    fill(255,255,255);
+    textSize(30);
+    text("Setting Up", cx -50, cy -30);
+    
+    
+    for(int i = 0; i < 10; i ++)
+    {
+    
+      fill(random(0, 255));
+      ellipse(cx, cy, 20, 20);
+      
+    }
+    
+    ltheta+=0.05;
+    
+  }
   
   if(movChartX >= boxW)
   {
@@ -146,7 +172,34 @@ void drawTrendGraph()
     movChartY = boxH;
     
   }
+  if(movChartY == boxH)
+  {
+    trendGraph();
+    
+  }
   
+  
+
+  
+}
+
+void trendGraph()
+{
+  float x = width/2 + 20;
+  float y = 10;
+  float boxW = width/2 -30;
+  float boxH = height/2 + 250;
+  float barW = boxW/12;
+  float boxX = x + boxW/8;
+  float boxY = height/2 + 170;
+  float scale = (boxH-250)/distMaxVal(); 
+  float bx = barW + 10;
+  float txtX = boxX;
+  
+  textFont(font2);
+  fill(255,255,255);
+  textSize(40);
+  text("Planetary Orbit Velocity", boxX + 40, 80);
   
   Planet pl1 = new Planet();
   Planet pl2 = new Planet(); 
@@ -177,9 +230,7 @@ void drawTrendGraph()
        
     
   }
-  
 }
-
 
 
 void drawDiameterBarChart()
@@ -194,11 +245,27 @@ void drawDiameterBarChart()
   float boxY = height/2 + 170;
   float scale = (boxH-250)/maxVal();  
   
+  movChartX+=2.3;
+  movChartY+=2;
+  
+  if(movChartX >= boxW)
+  {
+    movChartX = boxW;
+    
+  }
+  
+  if(movChartY >= boxH)
+  {
+    movChartY = boxH;
+    
+  }
+  
   strokeWeight(2);
-  noFill();
+  fill(0);
   rect(x, y , boxW, boxH);
   textFont(font2);
   textSize(40);
+  fill(255,255,255);
   text("Planetary Diemeter in KM", boxX + 40, 80);
   
   Planet pl1 = new Planet(); 

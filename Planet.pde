@@ -1,6 +1,6 @@
 float rev = 0;
 float pMove = 0;
-boolean pCheck = false;
+
 
 class Planet
 {

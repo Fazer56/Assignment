@@ -225,7 +225,7 @@ void menu()
   }
   else if(check ==0)
   {
-    drawTrendGraph();
+    graphRect();
   }
   
   

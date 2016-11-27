@@ -10,6 +10,7 @@ void options()
 {
   
   
+  
   /* FIRST BUTTON */
  
   Button opt1;
@@ -22,8 +23,9 @@ void options()
   opt1.option = "Spaceship Cockpit";
   
   stroke(0,255,255);
-  noFill();
+  fill(45, 60, 105);
   rect(opt1.rectX, mv1, opt1.recW, opt1.recH);
+  fill(255,255,255);
   textFont(font2);
   textSize(opt1.rectX/12);
   text(opt1.option, opt1.rectX+10, mv1 + opt1.rectX/10);
@@ -69,8 +71,9 @@ void options()
   opt2.option = "STAR MAP";
   
   stroke(0,255,255);
-  noFill();
+  fill(45, 60, 105);
   rect(mv2, opt2.rectY, opt2.recW, opt2.recH);
+  fill(255,255,255);
   textSize(opt2.rectX/12);
   text(opt2.option, mv2+10, opt2.rectY + opt2.rectX/10);
     
@@ -112,8 +115,9 @@ void options()
   opt3.option = "Weapons System";
   
   stroke(0,255,255);
-  noFill();
+  fill(45, 60, 105);
   rect(opt3.rectX, opt3.rectY, opt3.recW, opt3.recH);
+  fill(255,255,255);
   textSize(opt3.rectX/12);
   text(opt3.option, opt3.rectX+10, opt3.rectY + opt3.rectX/10);
    
