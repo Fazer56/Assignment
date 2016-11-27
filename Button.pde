@@ -37,7 +37,7 @@ class Button
    
   
     stroke(0,255,255);
-    noFill();
+    fill(45, 60, 105);
     rect(x, y, recW, recH);
     textSize(txtSize);
     fill(255,255,255);

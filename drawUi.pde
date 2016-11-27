@@ -238,7 +238,7 @@ float[] trend = { random(0,50), random(0, 50), random(0, 50), random(0, 50), ran
 
 void planMap()
 {
-  UI trd = new UI(width/1.5-50, 100, 40, 15);
+  UI trd = new UI(width/1.5-50, 100, 40, 25);
   
   for(int i =0; i < trend.length-1; i ++)
   {
@@ -252,8 +252,15 @@ void planMap()
     if(mouseX >=trd.x && mouseX <= trd.x + trd.uiHeight && mouseY >= trd.y - trend[i] && mouseY <= trd.y - trend[i] + trd.uiHeight)
     {
       
-      
-      
+      lights();
+      fill(random(255), random(255), random(255));
+      noStroke();
+      pushMatrix();
+      translate(width/2, height/2);
+      rotateZ(rev);
+      sphere(2000 * (2000/maxVal()));
+      popMatrix();
+        
       
     }
     

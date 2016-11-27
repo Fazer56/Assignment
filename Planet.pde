@@ -50,28 +50,29 @@ class Planet
   {
     fill(255,255,255);
     textSize(35);
-    text("The planet " + planet, 600, 200);
+    text("The planet " + planet, 100, 100);
     textSize(25);
-    text("\nDistance from the Sun (Astronical Units): " + distance, 600, 250);
-    text("\nDiameter in kilometers: " + diameter, 600, 300);
-    text("\nOrbit Period in Earth years: " + orbitperiod, 600, 350);
-    text("\nOrbit velocity in kilometers per second: " + orbitvel, 600, 400);
+    text("\nDistance from the Sun (Astronical Units): " + distance, 100, 150);
+    text("\nDiameter in kilometers: " + diameter, 100, 200);
+    text("\nOrbit Period in Earth years: " + orbitperiod, 100, 250);
+    text("\nOrbit velocity in kilometers per second: " + orbitvel, 100, 300);
     
     lights();
     fill(c);
     strokeWeight(.5);
     pushMatrix();
-    translate(pMove, height/1.5);
-    rotateZ(rev);
-    sphere(diameter * (200/maxVal()));
+    translate(pMove, height/1.6);
+    sphereDetail(35);
+    rotateZ(rev+orbitvel);
+    sphere(diameter * (350/maxVal()));
     popMatrix();
     
     rev++;
     pMove+=10;
     
-    if(pMove >= 800)
+    if(pMove >= 1000)
     {
-      pMove = 800;
+      pMove = 1000;
       
       
    
