@@ -22,8 +22,10 @@ void drawUi()
   background(1,34,50);
   
  
-  
-  ellipse(mouseX, mouseY, 10, 10);  
+  //cursor
+  stroke(255,0,0);
+  ellipse(mouseX, mouseY, 10, 10); 
+  line(mouseX-5, mouseY -5, mouseX -5, mouseY - 10);
   //bottom half of screen
   bottom.x = 0;
   bottom.y = height/1.5;
@@ -432,10 +434,12 @@ void soundWave()
   {
     float x1 = map(i, 0, tune.bufferSize(), width/2 - 200, width/2 + 200);
     float x2 = map(i+1, 0, tune.bufferSize(),width/2 - 200, width/2 + 200);
-    line(x1, height - 50 - tune.mix.get(i)*200, x2,  height - 50 - tune.mix.get(i+1)*200);
-    line(x1, height - 150 - tune.mix.get(i)*200, x2, height - 150 - tune.mix.get(i+1)*200);
+    stroke(random(255), random(255), random(255));
+    line(x1, height - 50 - tune.mix.get(i)*500, x2,  height - 50 - tune.mix.get(i+1)*500);
+    line(x1, height - 150 - tune.mix.get(i)*500, x2, height - 150 - tune.mix.get(i+1)*500);
     
   }
+  stroke(255,0,0);
  
   
 }
