@@ -1,5 +1,6 @@
 float rev = 0;
 float pMove = 0;
+boolean pCheck = false;
 
 class Planet
 {
@@ -72,13 +73,10 @@ class Planet
     
     if(pMove >= 1000)
     {
-      pMove = 1000;
+      pMove = 1000; 
       
-      
-   
     }
-    
-    
+
   }
  
   String toString()

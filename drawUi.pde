@@ -3,6 +3,15 @@ float gauge = 248;
 float counter = 100;
 boolean refill = false;
 
+
+float move = 0;
+float move2 = 0;
+float move3 = 0;
+float move4 = 0;
+float move5 = 0;
+float move6 = 0;
+boolean lie = false;
+
 void drawUi()
 {
   UI bottom = new UI();
@@ -12,7 +21,7 @@ void drawUi()
   
   background(1,34,50);
   
-  
+  navDials();
   
   ellipse(mouseX, mouseY, 10, 10);  
   //bottom half of screen
@@ -58,7 +67,7 @@ void drawUi()
   //draw some buttons on screen 
   //Button 1 
   textFont(font);
-  Button b1 = new Button(width/4, height/1.4, 200, 100, "REFUEL", width/4 + 5, height/1.4 + 50, 28, color(255,0, 0), color(45, 60, 105));
+  Button b1 = new Button(width/4, height/1.47, 200, 100, "REFUEL", width/4 + 5, height/1.5 + 50, 28, color(255,0, 0), color(45, 60, 105));
   b1.drawButton();
   
   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
@@ -108,6 +117,10 @@ void drawUi()
     
   }
 
+ 
+ //draw radar
+ 
+  
   
   //draw fuel gauge
   UI fuel = new UI();
@@ -223,7 +236,108 @@ void planMap()
   noFill();
   rect(trd.x - 400, trd.y + 20, 500, -100);
   
+}
+
+void navDials()
+{
  
+ Radar r = new Radar(width/2, height - 120, 110, 0.1);
+ r.update();
+ r.render();
+ 
+ 
+ UI radar = new UI();
+ radar.x = width/2;
+ radar.y = height - 120;
+ radar.uiWidth = 220;
+ 
+ for(int i = 0; i < 4; i++)
+ {
+   noFill();
+   stroke(0, 255, 250);
+   strokeWeight(1);
+   ellipse(radar.x, radar.y, radar.uiWidth, radar.uiWidth);
+   radar.uiWidth-=50;
+   
+ }
   
+ UI life = new UI();
+ 
+ life.x = width/2 + 200;
+ life.y = radar.y;
+ float lineX = life.x - 30;
+ float lineY = life.y - 50;
+ float speed =3;
+ float lineW = 30;
+ float lineH = 15;
+ 
+ 
+ //////////////////////////////////////////////////////////////////////////////
+ fill(45, 60, 105);
+ rect(life.x-30, life.y-50, 300, 150);
+
+ stroke(0,255,255);
+ for(int i = 0; i < 10; i++)
+ {
+   line(width/2+170, lineY + 5, width/2 + 470, lineY + 5);
+   line(lineX, height - 170, lineX, height - 20);
+   
+   lineY+=lineH;
+   lineX+=lineW;
+   
+ }
+ 
+ strokeWeight(3);
+ stroke(255,0,0);
+ line(life.x, life.y, life.x + move, life.y);
+ move+=speed;
+ 
+ if(move >= 30)
+ {
+   move = 30;
+   line(life.x + 30, life.y, life.x + 30 + move2, life.y + move2);
+   move2+=speed;
+ }
+ if(move2 >= 30)
+ {
+     move2 = 30;
+     line(life.x + 60, life.y + 30, life.x + 60 + move3, life.y + 30 - move3);
+     move3+=speed;
+ }
+ if(move3 >=60)
+ {
+       move3 = 60;
+       line(life.x + 120, life.y - 30, life.x + 120 + move4, life.y - 30 + move4);
+       move4+=speed;
+ }
+ if(move4 >=60)
+ {
+   move4 = 60;
+   line(life.x + 180, life.y + 30, life.x + 180 + move5, life.y + 30 - move5);
+   move5+=speed;
+ }
+ if(move5 >=30)
+ {
+    move5 = 30;
+    line(life.x + 210, life.y , life.x + 210 + move6, life.y);
+    move6+=speed;
+ }
+ if(move6 >= 50)
+ {
+   move6 = 50;
+   lie = true;
+ }
+ 
+  if(lie == true)
+ {
+   move = 0;
+   move2 = 0;
+   move3 = 0;
+   move4 = 0;
+   move5 = 0;
+   move6 = 0;
+   lie = false;
+   
+ }
   
 }

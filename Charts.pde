@@ -152,7 +152,7 @@ void drawTrendGraph()
       pl1.planetInfo();
       
     }
-    
+
     boxX = boxX + barW;
     txtX = txtX + bx;
        
