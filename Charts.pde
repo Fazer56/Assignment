@@ -108,26 +108,45 @@ void charts()
   
 }
 
+float movChartX = 0; 
+float movChartY = 0; 
+
 //draw Graphs and barchart
 void drawTrendGraph()
 {
   float x = width/2 + 20;
   float y = 10;
   float boxW = width/2 -30;
-  float boxH = height/2;
+  float boxH = height/2 + 250;
   float barW = boxW/12;
   float boxX = x + boxW/8;
   float boxY = height/2 + 170;
-  float scale = boxH/distMaxVal(); 
+  float scale = (boxH-250)/distMaxVal(); 
   float bx = barW + 10;
   float txtX = boxX;
   
   strokeWeight(2);
   noFill();
-  rect(x, y , boxW, boxH + 250);
+  rect(x, y , movChartX, movChartY);
   textFont(font2);
   textSize(40);
   text("Planetary Orbit Velocity", boxX + 40, 80);
+  
+  movChartX++;
+  movChartY++;
+  
+  if(movChartX >= boxW)
+  {
+    movChartX = boxW;
+    
+  }
+  
+  if(movChartY >= boxH)
+  {
+    movChartY = boxH;
+    
+  }
+  
   
   Planet pl1 = new Planet();
   Planet pl2 = new Planet(); 
@@ -169,15 +188,15 @@ void drawDiameterBarChart()
   float x = width/2 + 20;
   float y = 10;
   float boxW = width/2 -30;
-  float boxH = height/2;
+  float boxH = height/2 + 250;
   float barW = boxW/12;
   float boxX = x + boxW/8;
   float boxY = height/2 + 170;
-  float scale = boxH/maxVal();  
+  float scale = (boxH-250)/maxVal();  
   
   strokeWeight(2);
   noFill();
-  rect(x, y , boxW, boxH + 250);
+  rect(x, y , boxW, boxH);
   textFont(font2);
   textSize(40);
   text("Planetary Diemeter in KM", boxX + 40, 80);

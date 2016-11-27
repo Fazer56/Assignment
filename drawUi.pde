@@ -139,8 +139,8 @@ void drawUi()
   
   fill(0, 255,255);
   textFont(font, 48);
-  text("Fuel Gauge", fuel.x, fuel.y - 10);
-  text("%" + counter, fuel.x +(48*5), fuel.y - 10);
+  text("Fuel Gauge", fuel.x, fuel.y - 15);
+  text("%" + counter, fuel.x +(48*5), fuel.y - 15);
   
    if(frameCount % 12 == 0)
    {

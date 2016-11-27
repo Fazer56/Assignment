@@ -6,7 +6,7 @@ float tz = 0;
 float pz = 0;
 float selectedX;
 float selectedY;
-
+float moveElip = 0;
 
 void loading()
 {
@@ -71,13 +71,21 @@ void loading()
   stroke(0, 255, 255);
   strokeWeight(2);
   stroke(0, 255, 255, 100);
-  ellipse(width/2 - 100, height/3.1, xz, 360);
+  ellipse(moveElip, height/3.1, xz, 360);
   strokeWeight(5);
-  ellipse(width/2 - 100, height/3.1, 360, yz);
-  ellipse(width/2- 100, height/3.1, pz, 360);
+  ellipse(moveElip, height/3.1, 360, yz);
+  ellipse(moveElip, height/3.1, pz, 360);
   strokeWeight(5);
-  ellipse(width/2 - 100, height/3.1, 360, tz);
+  ellipse(moveElip, height/3.1, 360, tz);
  
+ moveElip++;
+ 
+ if(moveElip >= width/2 - 100)
+ {
+  
+   moveElip = width/2 - 100;
+   
+ }
   
     xz+=1;
     yz+=1;
