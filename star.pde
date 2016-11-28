@@ -32,7 +32,7 @@ class Star
     this.y = y;
     this.radius = r;
     this.points = points;
-    c = 0;
+    this.c = c;
     
     drawStar();
   }

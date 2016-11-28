@@ -21,6 +21,7 @@ void drawUi()
   
   background(1,34,50);
   
+  //star background.
   Star[] star = new Star[100];
   
   for(int i =0; i < star.length; i ++)
@@ -32,8 +33,8 @@ void drawUi()
    
   //bottom half of screen
   bottom.x = 0;
-  bottom.y = height/1.5;
-  bottom.uiWidth = width;
+  bottom.y = height/1.5; //recY
+  bottom.uiWidth = width; //recSize
   bottom.uiHeight = height/1.5;
   stroke(255, 100, 3);
   fill(0);
@@ -43,7 +44,7 @@ void drawUi()
   top.x = 0;
   top.y = 0;
   top.uiWidth = bottom.uiWidth;
-  top.uiHeight = height/6;
+  top.uiHeight = height/6; // rec2Y  arcSize recY - rec2Y
   rect(top.x, top.y, top.uiWidth, top.uiHeight);
   fill(255,0,0);
   triangle((top.uiWidth/2) - 200, top.uiHeight, (top.uiWidth/2) + 200, top.uiHeight, top.uiWidth/2, top.uiHeight + 150);
@@ -69,6 +70,17 @@ void drawUi()
   fill(255,100,3);
   arc(1915, 180, 465 , 180, radians(180), radians(270));
   arc(1915, 720, 465 , 180, radians(90), radians(180));
+  
+  fill(255,0,0);
+  arc(100, bottom.y - top.uiHeight,  200, 200, radians(0), radians(180));
+  fill(1,34,50);
+  arc(100, bottom.y - top.uiHeight, 200, 200, radians(180), radians(360));
+  
+  fill(255,0,0);
+  arc(width - 100, bottom.y - top.uiHeight, 200, 200, radians(0), radians(180));
+  fill(1,34,50);
+  arc(width - 100, bottom.y - top.uiHeight, 200, 200, radians(180), radians(360));
+  
   
   //draw some buttons on screen 
   //Button 1 
