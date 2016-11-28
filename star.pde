@@ -1,4 +1,4 @@
-class Star
+class Star 
 {
   //fields
   float x;
@@ -6,6 +6,8 @@ class Star
   float radius;
   int points;
   color c;
+  float uiW;
+  float uiH;
   
   //default constructor
   Star()

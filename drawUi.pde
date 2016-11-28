@@ -76,6 +76,8 @@ void drawUi()
     {
       fill(45, 60, 105);
       rect(b1.x+2, b1.y+2, b1.recW, b1.recH);
+      fill(255,255,255);
+      text("REFUELING...", width/2-500, height/5);
       refill = true;
       
     }
@@ -513,7 +515,8 @@ void soundWave()
     size = 100;
     
   }
-  
+  fill(0);
+  rect(width/2 -300, height/2-200, 500, 200);
   
    for (int i = 0; i < tune.bufferSize() - 1; i++)
   {

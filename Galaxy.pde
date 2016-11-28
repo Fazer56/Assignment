@@ -5,7 +5,6 @@ class Galaxy
   float speed;
   PVector location;
   float radius;
-  //float theta;
   float x;
   float y;
   float z;
@@ -18,16 +17,16 @@ class Galaxy
   }
   
     //parameterised constructor
-  Galaxy(float speed, float x, float y, float z, float r)
+  Galaxy(float speed, float x, float y, float z, float r, color c)
   {
     this.speed = speed;
     this.x = x;
     this.y = y;
     this.z = z;
-    this.c = color(random(255), random(255), random(255)); 
+    this.c = c;
     
     this.radius = r;
-    //this.theta = theta;
+   
     
     createSphere(y);
     
@@ -44,7 +43,6 @@ class Galaxy
     location = new PVector(cx, y, cz); 
      
     pushMatrix(); 
-    
     lights();
     translate(location.x, location.y, location.z);
     sphereDetail(35);
