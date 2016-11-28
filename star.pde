@@ -1,3 +1,4 @@
+
 class Star 
 {
   //fields
@@ -11,8 +12,17 @@ class Star
   
   //default constructor
   Star()
-  {
+  { 
   }
+  
+  Star(float x, float y)
+  {
+    this.x = x;
+    this.y = y;
+    drawS();
+  }
+  
+  
   
   //parameterised constructor
   Star( float x, float y, float r, int points, color c)
@@ -57,6 +67,13 @@ class Star
       lastY = zy;      
     }
  
+  }
+  
+  void drawS()
+  {
+    noStroke();
+    fill(random(150, 255), random(150, 255), 255);
+    ellipse(x, y, 20, 20);
   }
   
 }

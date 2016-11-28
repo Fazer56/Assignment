@@ -21,12 +21,19 @@ void drawUi()
   
   background(1,34,50);
   
- 
- 
+  Star[] star = new Star[100];
+  
+  for(int i =0; i < star.length; i ++)
+  {
+   
+    star[i] = new Star(random(0, width), random(0, height));
+    
+  }
+   
   //bottom half of screen
   bottom.x = 0;
   bottom.y = height/1.5;
-  bottom.uiWidth = width - 5;
+  bottom.uiWidth = width;
   bottom.uiHeight = height/1.5;
   stroke(255, 100, 3);
   fill(0);
@@ -432,6 +439,7 @@ void navDials()
  fill(255,255,255);
  text("CABIN PRESSURE", ui1.x - 100, ui1.y + 30);
 
+
   
 }
 
@@ -533,6 +541,8 @@ void soundWave()
   }
   
   stroke(255,0,0);
+  
+  
  
 
   

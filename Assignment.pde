@@ -137,8 +137,8 @@ void drawStarsGrid()
   rect(width/4 - lineW, 100 - lineW, gridX, gridY);
   
 
-  gridY+=2;
-  gridX+=2;
+  gridY+=3;
+  gridX+=3;
   
   if(gridY >= 1000)
   {
