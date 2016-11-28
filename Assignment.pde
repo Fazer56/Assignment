@@ -61,7 +61,7 @@ float move3 = 0;
 float move4 = 0;
 float move5 = 0;
 float move6 = 0;
-boolean lie = false;
+boolean mCheck = false;
 float arctheta = 0;
 float gridX = 0;
 float gridY = 0;
@@ -118,6 +118,7 @@ void draw()
     if(choice == 1)
     {
       navDials();
+      tune.play();
       
     }
     if(choice == 2)
@@ -134,21 +135,16 @@ void draw()
     drawStarsGrid();
   }
   
-  
-
 }
 
 void drawStarsGrid()
 {
   
   float lineW = 80;
-  
-  
   fill(0);
   stroke(random(0,255), 100, (random(255)));
   rect(width/4 - lineW, 100 - lineW, gridX, gridY);
   
-
   gridY+=3;
   gridX+=3;
   
@@ -177,12 +173,11 @@ void drawStarsGrid()
   } 
   
 }
-
+//starMap for mapping loading stars 
 void starMap()
 {
-   Star str = new Star();
-  
-  
+  Star str = new Star();
+   
   float x = width/4;
   float y = 100;
   float xc;
@@ -194,7 +189,6 @@ void starMap()
   float lineW = 80;
   float lineH = 80;
 
-  
   for(int i = 0; i < 11; i ++)
   {
     line(x, lineY, x + 800, lineY);
@@ -202,10 +196,8 @@ void starMap()
     
     lineY+=lineH;
     lineX+=lineW;
-    
   }
 
-  
   for(int i =0; i < stars.size(); i++)
   {
     str = stars.get(i);
@@ -221,9 +213,7 @@ void starMap()
     textAlign(LEFT, CENTER);
     text(xc, xc + 20, yc);
     
-  }
-  
-  
+  }  
 }
 
 void menu()

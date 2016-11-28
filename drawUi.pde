@@ -69,6 +69,56 @@ void drawUi()
   arc(width - 100, bottom.y - top.uiHeight, 200, 200, radians(180), radians(360));
   
   
+  //draw thrusters
+    //draw thrusters
+  UI ui3 = new UI(width - 100);
+
+  ui3.x = width -100;
+  ui3.y = height/6 + 150;
+  float gauge = 60;
+  ui3.recX = 100;
+  ui3.fuelX = 20;
+ 
+  
+  for(int i = 0; i < 8; i++)
+  {
+    
+    noStroke();
+    fill(0,255,255);
+    //right thrust
+    rect(ui3.x, ui3.y +5, gauge, ui2.container);
+    fill(0, 255,255);
+    textFont(font, 20);
+    text("Thrust \n Right -->", ui2.recX-10, ui2.recY + 70);
+    //left thrust
+    rect(ui3.recX, ui2.recY + ui3.fuelX +5, ui3.gauge, ui2.container);
+    text("Thrust \n <-- Left ", ui3.recX , ui2.recY + 70);
+    
+    if(keyPressed == true)
+    {
+   
+      if(key == 'd' || key == 'D')
+      {
+      
+         ui3.container = (ui3.container - ui2.container) - 5;
+         moveX--;
+         
+      }
+      
+      if(key == 'a' || key == 'A')
+      {
+      
+         ui3.fuelX = (ui3.fuelX - ui2.container) - 5;
+         moveX++;
+         
+      
+      }
+    
+    }
+     
+  }
+  
+  
   //draw some buttons on screen 
   //Button 1 
   textFont(font);
@@ -102,7 +152,6 @@ void drawUi()
      
       fill(45, 60, 105);
       rect(b2.x+2, b2.y+2, b2.recW, b2.recH);
-      
       choice = 2;
       
     }
@@ -182,10 +231,10 @@ void drawUi()
       
         noFill();
         stroke(255,0,0);
-        rect(width/2 -150, height/2 - 40, 400, 200); 
+        rect(width/2 -250, height/2 - 40, 400, 220); 
         fill(random(100,255),0,0);
         textFont(font, 30);
-        text("Warning ! \nFuel Low ! \nNAVIGATION GOING OFFLINE \nREFUEL NOW!!!", width/2 - 130, height/2);
+        text("WARNING ! \n! FUEL LOW ! \n! NAVIGATION GOING OFFLINE !\nBEATBOX WILL FAIL !\nREFUEL NOW!!!", width/2 - 230, height/2);
         textSize(40);
         
         if(frameCount % 12 == 0)
@@ -221,22 +270,7 @@ void planMap()
     ellipse(trd.x, trd.y - trend[i], trd.uiHeight, trd.uiHeight);
     line(trd.x, trd.y - trend[i], trd.x + trd.uiWidth, trd.y - trend[i+1]);
     trd.x += trd.uiWidth;
-    
-    if(mouseX >=trd.x && mouseX <= trd.x + trd.uiHeight && mouseY >= trd.y - trend[i] && mouseY <= trd.y - trend[i] + trd.uiHeight)
-    {
-      
-      lights();
-      fill(random(255), random(255), random(255));
-      noStroke();
-      pushMatrix();
-      translate(width/2, height/2);
-      rotateZ(rev);
-      sphere(2000 * (2000/maxVal()));
-      popMatrix();
         
-      
-    }
-    
   }
   
   textSize(30);
@@ -244,7 +278,7 @@ void planMap()
   noFill();
   rect(trd.x - 400, trd.y + 20, 500, -100);
   
-    //cursor
+  //cursor
   stroke(255,0,0);
   ellipse(mouseX, mouseY, 10, 10); 
   line(mouseX + 5, mouseY + 5, mouseX + 15 , mouseY + 15);
@@ -260,8 +294,7 @@ void navDials()
  Radar r = new Radar(width/2 - 50, height - 120, 110, 0.1);
  r.update();
  r.render();
- 
- 
+
  UI radar = new UI();
  radar.x = width/2 - 50;
  radar.y = height - 120;
@@ -277,6 +310,7 @@ void navDials()
    
  }
   
+ //draw the lifeline 
  UI life = new UI();
  
  life.x = width/2 + 200;
@@ -342,10 +376,10 @@ void navDials()
  if(move6 >= 50)
  {
    move6 = 50;
-   lie = true;
+   mCheck = true;
  }
  
-  if(lie == true)
+  if(mCheck == true)
  {
    move = 0;
    move2 = 0;
@@ -353,7 +387,7 @@ void navDials()
    move4 = 0;
    move5 = 0;
    move6 = 0;
-   lie = false;
+   mCheck = false;
    
  }
  
@@ -484,14 +518,12 @@ void soundWave()
   
   if(mousePressed == true)
   {
-  
     if((mouseX >= b3.x && mouseX < b3.x + b3.recW) && (mouseY >= b3.y && mouseY < b3.y + b3.recH))
     {
       door.rewind();
       door.play();
       
     }
-    
   }
   
   if(mousePressed == true)
@@ -515,17 +547,17 @@ void soundWave()
   fill(0);
   rect(width/2 -300, height/2-200, 500, 200);
   
-   for (int i = 0; i < tune.bufferSize() - 1; i++)
+  for (int i = 0; i < tune.bufferSize() - 1; i++)
   {
     float x1 = map(i, 0, tune.bufferSize(), width/2 - 300, width/2 + 200);
     float x2 = map(i+1, 0, tune.bufferSize(),width/2 - 300, width/2 + 200);
     float xz1 = map(i, 0, tune.bufferSize(), width/2 - 300, width/2 + 200);
     float xz2 = map(i+1, 0, tune.bufferSize(),width/2 - 300, width/2 + 200);
     stroke(random(255), random(255), random(255));
-    line(x1, height/2 - 50 - warp.mix.get(i)*100, x2,  height/2 - 50 - warp.mix.get(i+1)*100);
-    line(x1, height/2 - 150 - gun.mix.get(i)*100, x2, height/2 - 150 - gun.mix.get(i+1)*100);
-    line(xz1, height/2 - 50 - door.mix.get(i)*100, xz2,  height/2 - 50 - door.mix.get(i+1)*100);
-    line(xz1, height/2 - 150 - chew.mix.get(i)*100, xz2, height/2 - 150 - chew.mix.get(i+1)*100);
+    line(x1, height/2 - 50 - warp.mix.get(i)*50, x2,  height/2 - 50 - warp.mix.get(i+1)*50);
+    line(x1, height/2 - 150 - gun.mix.get(i)*50, x2, height/2 - 150 - gun.mix.get(i+1)*50);
+    line(xz1, height/2 - 50 - door.mix.get(i)*50, xz2,  height/2 - 50 - door.mix.get(i+1)*50);
+    line(xz1, height/2 - 150 - chew.mix.get(i)*50, xz2, height/2 - 150 - chew.mix.get(i+1)*50);
     
   }
   stroke(255,0,0);  
