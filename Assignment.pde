@@ -23,13 +23,19 @@ void setup()
   
   tune = minim.loadFile ("Richard Strauss- Also sprach Zarathustra (1) Zubin Mehta.mp3");
   warp= minim.loadFile("UFO_take.wav");
-  
+  gun = minim.loadFile("Alien_gun.wav");
+  door = minim.loadFile("Chamber.wav");
+  chew = minim.loadFile("Chewbacca.wav");
   tune.play();
 }
 
 Minim minim;
 AudioPlayer tune;
 AudioPlayer warp;
+AudioPlayer gun;
+AudioPlayer door;
+AudioPlayer chew;
+
 
 PImage img;
 PImage img2;

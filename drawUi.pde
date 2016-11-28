@@ -458,11 +458,48 @@ void soundWave()
   
     if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseX < b1.y + b1.recH))
     {
+      warp.rewind();
       warp.play();
       
     }
     
   }
+  
+  if(mousePressed == true)
+  {
+  
+    if((mouseX >= b2.x && mouseX < b2.x + b2.recW) && (mouseY >= b2.y && mouseX < b2.y + b2.recH))
+    {
+      gun.rewind();
+      gun.play();
+      
+    }
+    
+  }
+  if(mousePressed == true)
+  {
+  
+    if((mouseX >= b2.x && mouseX < b2.x + b2.recW) && (mouseY >= b2.y && mouseX < b2.y + b2.recH))
+    {
+      chew.rewind();
+      chew.play();
+      
+    }
+    
+  }
+    if(mousePressed == true)
+  {
+  
+    if((mouseX >= b3.x && mouseX < b3.x + b3.recW) && (mouseY >= b3.y && mouseX < b3.y + b3.recH))
+    {
+      door.rewind();
+      door.play();
+      
+    }
+    
+  }
+  
+  
   
   size++;
   
