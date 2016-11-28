@@ -140,7 +140,6 @@ void loading()
       text(selectedY + "  Y coordinate", selectedX + 50, selectedY + 30);
    }
    
-   
    /*
    Button b1 = new Button(width/1.5, height/3, 250, 150, "New Button", width/1.5 + 30, height/3 + 100, 20);
    

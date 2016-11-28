@@ -433,8 +433,28 @@ void navDials()
   
 }
 
+float size = 0;
+
 void soundWave()
 {
+ 
+  
+  UI dj = new UI(width/3, height-220, 500, 200);
+  noFill();
+  rect(dj.x, dj.y, dj.uiWidth, dj.uiHeight);
+  
+  Button b1 = new Button(width/3 + 10, height - 200, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(255,255,0));
+  b1.drawButton();
+  
+  size++;
+  
+  if(size >= 50)
+  {
+    size = 50;
+    
+  }
+  
+  /*
    for (int i = 0; i < tune.bufferSize() - 1; i++)
   {
     float x1 = map(i, 0, tune.bufferSize(), width/2 - 200, width/2 + 200);
@@ -444,6 +464,7 @@ void soundWave()
     line(x1, height - 150 - tune.mix.get(i)*500, x2, height - 150 - tune.mix.get(i+1)*500);
     
   }
+  */
   stroke(255,0,0);
  
 

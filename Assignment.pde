@@ -46,8 +46,8 @@ ArrayList<Planet> planets = new ArrayList<Planet>();
 ArrayList<Star> stars = new ArrayList<Star>();
 ArrayList<Galaxy> galaxies = new ArrayList<Galaxy>();
 
-int gamestate = -1;
-//int gamestate = 0;
+//int gamestate = -1;
+int gamestate = 0;
 int check = 0;
 int image = 1;
 
@@ -101,6 +101,8 @@ void draw()
     {
      
       soundWave();
+      tune.pause();
+      
       
     }
   }
