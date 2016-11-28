@@ -1,17 +1,4 @@
 //SPACESHIPCOCKPIT
-float gauge = 248;
-float counter = 100;
-boolean refill = false;
-float choice = 0;
-float move = 0;
-float move2 = 0;
-float move3 = 0;
-float move4 = 0;
-float move5 = 0;
-float move6 = 0;
-boolean lie = false;
-float arctheta = 0;
-
 void drawUi()
 {
   UI bottom = new UI();
@@ -371,7 +358,7 @@ void navDials()
  }
  
  UI ui1 = new UI(width/8, height/1.05, 20, random(1, 60));
- UI ui2 = new UI(width/4, height - 100, 150, 150);
+ UI ui2 = new UI(width/4 + 130, height - 100, 150, 150);
  UI ui3 = new UI(width/9, height/1.05, 20, random(1, 90));
  UI ui4 = new UI(width/10, height/1.05, 20, random(1, 40));
  
@@ -385,8 +372,7 @@ void navDials()
  
  strokeWeight(6);
  
-
- 
+ //Flux Capicitor
  noFill();
  pushMatrix();
  translate(ui2.x, ui2.y);
@@ -437,8 +423,9 @@ void navDials()
  popMatrix();
  
  fill(250,0,0);
- ellipse(width/4, height - 100, 75, 75);
- 
+ ellipse(width/4 + 130, height - 100, 75, 75);
+ fill(250,255,255);
+ text("Flux Capacitor", width/4 + 30, height - 210);
  
  strokeWeight(2);
  
@@ -449,18 +436,12 @@ void navDials()
  rect(ui3.x, ui3.y, ui3.uiWidth, -ui3.uiHeight);
  rect(ui4.x, ui4.y, ui4.uiWidth, -ui4.uiHeight);
  fill(255,255,255);
- text("CABIN PRESSURE", ui1.x - 100, ui1.y + 30);
-
-
-  
+ text("CABIN PRESSURE", ui1.x - 100, ui1.y + 30); 
 }
-
-float size = 0;
 
 void soundWave()
 {
  
-  
   UI dj = new UI(width/3, height-220, 500, 300);
   fill(255,255,0);
   rect(dj.x, dj.y, dj.uiWidth, dj.uiHeight);
@@ -524,10 +505,6 @@ void soundWave()
     }
     
   }
-  
-  
-  
-  
   size++;
   
   if(size >= 100)
@@ -551,11 +528,5 @@ void soundWave()
     line(xz1, height/2 - 150 - chew.mix.get(i)*100, xz2, height/2 - 150 - chew.mix.get(i+1)*100);
     
   }
-  
-  stroke(255,0,0);
-  
-  
- 
-
-  
+  stroke(255,0,0);  
 }

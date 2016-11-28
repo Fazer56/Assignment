@@ -1,6 +1,0 @@
-class StarField extends Star
-{
-  
-
-  
-}

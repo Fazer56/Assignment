@@ -1,5 +1,3 @@
-float rtheta = 0;
-
 class Radar
 {
   // Fields

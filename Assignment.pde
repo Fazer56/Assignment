@@ -40,14 +40,7 @@ AudioPlayer chew;
 PImage img;
 PImage img2;
 PImage img3;
-
 PFont font, font2, font3;
-
-/* Class for UI*/
-
-/* Class for Planets*/
-
-
 Table table;
 
 ArrayList<Planet> planets = new ArrayList<Planet>();
@@ -58,6 +51,28 @@ ArrayList<Galaxy> galaxies = new ArrayList<Galaxy>();
 int gamestate = 0;
 int check = 0;
 int image = 1;
+float gauge = 248;
+float counter = 100;
+boolean refill = false;
+float choice = 0;
+float move = 0;
+float move2 = 0;
+float move3 = 0;
+float move4 = 0;
+float move5 = 0;
+float move6 = 0;
+boolean lie = false;
+float arctheta = 0;
+float gridX = 0;
+float gridY = 0;
+float movChartX = 0; 
+float movChartY = 0; 
+float ltheta = 0;
+float theta = 0;
+float rev = 0;
+float pMove = 0;
+float rtheta = 0;
+float size = 0;
 
 void draw()
 {
@@ -122,9 +137,6 @@ void draw()
   
 
 }
-
-float gridX = 0;
-float gridY = 0;
 
 void drawStarsGrid()
 {

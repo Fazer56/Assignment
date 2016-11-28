@@ -1,7 +1,3 @@
-float rev = 0;
-float pMove = 0;
-
-
 class Planet
 {
   String planet;

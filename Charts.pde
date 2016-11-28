@@ -101,10 +101,6 @@ void charts()
    }  
 }
 
-float movChartX = 0; 
-float movChartY = 0; 
-float ltheta = 0;
-
 //draw Graphs and barchart
 void graphRect()
 {
@@ -166,8 +162,6 @@ void graphRect()
   }
   
   
-
-  
 }
 
 void trendGraph()
@@ -205,20 +199,14 @@ void trendGraph()
     
     if((mouseX >= boxX-15 && mouseX < boxX + 15) && (mouseY >= boxY-pl1.distance*scale -15 && mouseY < boxY-pl1.distance*scale + 15))
     {
-      
-      
       background(0);
-      pl1.planetInfo();
-      
+      pl1.planetInfo(); 
     }
 
     boxX = boxX + barW;
     txtX = txtX + bx;
-       
-    
   }
 }
-
 
 void drawDiameterBarChart()
 {

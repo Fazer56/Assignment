@@ -1,5 +1,3 @@
-float theta = 0;
-
 class Galaxy
 {
   float speed;
