@@ -443,14 +443,21 @@ void soundWave()
   noFill();
   rect(dj.x, dj.y, dj.uiWidth, dj.uiHeight);
   
-  Button b1 = new Button(width/3 + 10, height - 200, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(255,255,0));
+  Button b1 = new Button(width/3 + 50, height - 180, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(random(255), random(255), random(255)));
+  Button b2 = new Button(b1.x + b1.recH, height - 180, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(random(255), random(255), random(255)));
+  Button b3 = new Button(b2.x + b1.recH, height - 180, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(random(255), random(255), random(255)));
+  Button b4 = new Button(b3.x + b1.recH, height - 180, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(random(255), random(255), random(255)));
+  
   b1.drawButton();
+  b2.drawButton();
+  b3.drawButton();
+  b4.drawButton();
   
   size++;
   
-  if(size >= 50)
+  if(size >= 100)
   {
-    size = 50;
+    size = 100;
     
   }
   
