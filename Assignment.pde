@@ -22,12 +22,14 @@ void setup()
  minim = new Minim(this);
   
   tune = minim.loadFile ("Richard Strauss- Also sprach Zarathustra (1) Zubin Mehta.mp3");
+  warp= minim.loadFile("UFO_take.wav");
   
   tune.play();
 }
 
 Minim minim;
 AudioPlayer tune;
+AudioPlayer warp;
 
 PImage img;
 PImage img2;

@@ -453,6 +453,17 @@ void soundWave()
   b3.drawButton();
   b4.drawButton();
   
+  if(mousePressed == true)
+  {
+  
+    if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseX < b1.y + b1.recH))
+    {
+      warp.play();
+      
+    }
+    
+  }
+  
   size++;
   
   if(size >= 100)
