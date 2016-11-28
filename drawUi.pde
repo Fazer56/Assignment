@@ -439,9 +439,11 @@ void soundWave()
 {
  
   
-  UI dj = new UI(width/3, height-220, 500, 200);
-  noFill();
+  UI dj = new UI(width/3, height-220, 500, 300);
+  fill(255,255,0);
   rect(dj.x, dj.y, dj.uiWidth, dj.uiHeight);
+  fill(255,0,0);
+  text("BeatBox", dj.x + 200, dj.y + 30);
   
   Button b1 = new Button(width/3 + 50, height - 180, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(random(255), random(255), random(255)));
   Button b2 = new Button(b1.x + b1.recH, height - 180, size, size, "", width/3 + 30, height/2 + 25, 1, color(255,255,255), color(random(255), random(255), random(255)));
@@ -456,7 +458,7 @@ void soundWave()
   if(mousePressed == true)
   {
   
-    if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseX < b1.y + b1.recH))
+    if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
     {
       warp.rewind();
       warp.play();
@@ -468,7 +470,7 @@ void soundWave()
   if(mousePressed == true)
   {
   
-    if((mouseX >= b2.x && mouseX < b2.x + b2.recW) && (mouseY >= b2.y && mouseX < b2.y + b2.recH))
+    if((mouseX >= b2.x && mouseX < b2.x + b2.recW) && (mouseY >= b2.y && mouseY < b2.y + b2.recH))
     {
       gun.rewind();
       gun.play();
@@ -476,21 +478,11 @@ void soundWave()
     }
     
   }
+  
   if(mousePressed == true)
   {
   
-    if((mouseX >= b2.x && mouseX < b2.x + b2.recW) && (mouseY >= b2.y && mouseX < b2.y + b2.recH))
-    {
-      chew.rewind();
-      chew.play();
-      
-    }
-    
-  }
-    if(mousePressed == true)
-  {
-  
-    if((mouseX >= b3.x && mouseX < b3.x + b3.recW) && (mouseY >= b3.y && mouseX < b3.y + b3.recH))
+    if((mouseX >= b3.x && mouseX < b3.x + b3.recW) && (mouseY >= b3.y && mouseY < b3.y + b3.recH))
     {
       door.rewind();
       door.play();
@@ -498,6 +490,19 @@ void soundWave()
     }
     
   }
+  
+  if(mousePressed == true)
+  {
+  
+    if((mouseX >= b4.x && mouseX < b4.x + b4.recW) && (mouseY >= b4.y && mouseY < b4.y + b4.recH))
+    {
+      chew.rewind();
+      chew.play();
+      
+    }
+    
+  }
+  
   
   
   
@@ -509,17 +514,21 @@ void soundWave()
     
   }
   
-  /*
+  
    for (int i = 0; i < tune.bufferSize() - 1; i++)
   {
-    float x1 = map(i, 0, tune.bufferSize(), width/2 - 200, width/2 + 200);
-    float x2 = map(i+1, 0, tune.bufferSize(),width/2 - 200, width/2 + 200);
+    float x1 = map(i, 0, tune.bufferSize(), width/2 - 300, width/2 + 200);
+    float x2 = map(i+1, 0, tune.bufferSize(),width/2 - 300, width/2 + 200);
+    float xz1 = map(i, 0, tune.bufferSize(), width/2 - 300, width/2 + 200);
+    float xz2 = map(i+1, 0, tune.bufferSize(),width/2 - 300, width/2 + 200);
     stroke(random(255), random(255), random(255));
-    line(x1, height - 50 - tune.mix.get(i)*500, x2,  height - 50 - tune.mix.get(i+1)*500);
-    line(x1, height - 150 - tune.mix.get(i)*500, x2, height - 150 - tune.mix.get(i+1)*500);
+    line(x1, height/2 - 50 - warp.mix.get(i)*100, x2,  height/2 - 50 - warp.mix.get(i+1)*100);
+    line(x1, height/2 - 150 - gun.mix.get(i)*100, x2, height/2 - 150 - gun.mix.get(i+1)*100);
+    line(xz1, height/2 - 50 - door.mix.get(i)*100, xz2,  height/2 - 50 - door.mix.get(i+1)*100);
+    line(xz1, height/2 - 150 - chew.mix.get(i)*100, xz2, height/2 - 150 - chew.mix.get(i+1)*100);
     
   }
-  */
+  
   stroke(255,0,0);
  
 
