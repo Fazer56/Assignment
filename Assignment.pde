@@ -19,7 +19,7 @@ void setup()
  loadPlanetTable();
  
  //load music
-  minim = new Minim(this);
+ minim = new Minim(this);
   
   tune = minim.loadFile ("Richard Strauss- Also sprach Zarathustra (1) Zubin Mehta.mp3");
   
@@ -46,8 +46,8 @@ ArrayList<Planet> planets = new ArrayList<Planet>();
 ArrayList<Star> stars = new ArrayList<Star>();
 ArrayList<Galaxy> galaxies = new ArrayList<Galaxy>();
 
-//int gamestate = -1;
-int gamestate = 0;
+int gamestate = -1;
+//int gamestate = 0;
 int check = 0;
 int image = 1;
 
@@ -127,8 +127,8 @@ void drawStarsGrid()
   rect(width/4 - lineW, 100 - lineW, gridX, gridY);
   
 
-  gridY++;
-  gridX++;
+  gridY+=2;
+  gridX+=2;
   
   if(gridY >= 1000)
   {

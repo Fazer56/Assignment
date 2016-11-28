@@ -9,8 +9,6 @@ float mv3 = 0;
 void options()
 {
   
-  
-  
   /* FIRST BUTTON */
  
   Button opt1;
@@ -29,6 +27,24 @@ void options()
   textFont(font2);
   textSize(opt1.rectX/12);
   text(opt1.option, opt1.rectX+10, mv1 + opt1.rectX/10);
+  
+  /* textFont(font3);
+  Button opt1 = new Button(width/4, height/8, width/4, width/8, "Spaceship Cockpit", width/1.5 + 30, height/2 + 330, 20, color(45, 60, 105), color(0,200,255));
+  
+   opt1.drawButton();
+   
+  if((mouseX >= opt1.x && mouseX <= opt1.x + opt1.recW) && (mouseY >= opt1.y && mouseY <= opt1.y + opt1.recH))
+  {
+   
+    
+    if(mousePressed == true)
+    {
+      check = 0;
+      
+      
+    }
+    
+  } */
   
    
   if((mouseX >= opt1.rectX && mouseX <= opt1.rectX + opt1.recW) && (mouseY >= opt1.rectY && mouseY <= opt1.rectY + opt1.recH))
@@ -104,40 +120,7 @@ void options()
     
   }
   
-  /* THIRD BUTTON */
-  Button opt3; 
-  opt3 = new Button();
-  
-  opt3.rectX = width/4;
-  opt3.rectY = height/8 + (opt1.recH*2) ;
-  opt3.recW = opt3.rectX;
-  opt3.recH = opt3.rectX/4;
-  opt3.option = "Weapons System";
-  
-  stroke(0,255,255);
-  fill(45, 60, 105);
-  rect(opt3.rectX, opt3.rectY, opt3.recW, opt3.recH);
-  fill(255,255,255);
-  textSize(opt3.rectX/12);
-  text(opt3.option, opt3.rectX+10, opt3.rectY + opt3.rectX/10);
-   
-  if((mouseX >= opt3.rectX && mouseX <= opt3.rectX + opt3.recW) && (mouseY >= opt3.rectY && mouseY <= opt3.rectY + opt3.recH))
-  {
-   
-    fill(0,200,255);
-    rect(opt3.rectX, opt3.rectY, opt3.recW, opt3.recH);
-    fill(255,255,255);
-    textSize(opt3.rectX/12);
-    text(opt3.option, opt3.rectX+10, opt3.rectY + opt3.rectX/10);
-    
-    if(mousePressed == true)
-    {
-      gamestate = 3;
-    }
-    
-  }
-  
-  //return gamestate;
+
 }
 
 

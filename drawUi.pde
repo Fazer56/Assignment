@@ -22,10 +22,7 @@ void drawUi()
   background(1,34,50);
   
  
-  //cursor
-  stroke(255,0,0);
-  ellipse(mouseX, mouseY, 10, 10); 
-  line(mouseX-5, mouseY -5, mouseX -5, mouseY - 10);
+ 
   //bottom half of screen
   bottom.x = 0;
   bottom.y = height/1.5;
@@ -239,6 +236,14 @@ void planMap()
   noFill();
   rect(trd.x - 400, trd.y + 20, 500, -100);
   
+    //cursor
+  stroke(255,0,0);
+  ellipse(mouseX, mouseY, 10, 10); 
+  line(mouseX + 5, mouseY + 5, mouseX + 15 , mouseY + 15);
+  line(mouseX - 5, mouseY + 5, mouseX - 15 , mouseY + 15);
+  line(mouseX, mouseY + 5, mouseX, mouseY + 20);
+  line(mouseX, mouseY - 5, mouseX, mouseY - 15);
+  
 }
 
 void navDials()
@@ -441,5 +446,6 @@ void soundWave()
   }
   stroke(255,0,0);
  
+
   
 }
