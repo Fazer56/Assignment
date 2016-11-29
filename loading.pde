@@ -2,7 +2,6 @@
 
 void loading()
 {
-  
   UI container = new UI();
   UI loadBar = new UI();
 

@@ -36,7 +36,6 @@ AudioPlayer gun;
 AudioPlayer door;
 AudioPlayer chew;
 
-
 PImage img;
 PImage img2;
 PImage img3;
@@ -90,8 +89,6 @@ float moveElip = 0;
 
 void draw()
 {
-  
-  
   background(0);
   
   if(image == 0)
@@ -102,26 +99,20 @@ void draw()
   if(image == 1)
   {
     image(img2, 0, 0);
-    
-    
   }
   else if(image == 2)
   {
-   
-    image(img3, 0, 0);
-    
+    image(img3, 0, 0); 
   }
    
   if(gamestate == -1)
   {
     loading();
-    
   }
   
   else if(gamestate == 0)
   {
-    menu();
-    
+    menu(); 
   }
   
   else if (gamestate == 1)
@@ -147,11 +138,8 @@ void draw()
     }
     if(choice == 2)
     {
-     
       soundWave();
       tune.pause();
-      
-      
     }
   }
   else if(gamestate == 2)
@@ -160,7 +148,6 @@ void draw()
   }
   
 }
-
 
 void menu()
 {

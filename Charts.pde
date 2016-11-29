@@ -1,6 +1,5 @@
 void charts()
 {
-  
   //Button 1
   textFont(font3);
   Button opt1 = new Button(width/1.5 + 20, height/2 + 270, 100, 100, "Distance", width/1.5 + 30, height/2 + 330, 20, color(45, 60, 105), color(0,200,255));
@@ -35,20 +34,20 @@ void charts()
    Button b1 = new Button(width/3, height/2, imgWMove, imgHMove, "GALAXY!!", width/3 + 30, height/2 + 25, imgTMove, color(45, 60, 105), color(0,200,255));
    Button b2 = new Button(width/3, height/2 + 50, imgWMove, imgHMove, "EXPLODING STAR", width/3 + 30, height/2 + 75, imgTMove, color(45, 60, 105), color(0,200,255));
    Button b3 = new Button(width/3, height/2 + 100, imgWMove, imgHMove, "THE UNIVERSE!!", width/3 + 30, height/2 + 125, imgTMove, color(45, 60, 105), color(0,200,255));
-   
    b1.drawButton();
    b2.drawButton();
    b3.drawButton();
-   
+    
+   fill(255, 255, 255);
+   rect(width/3, height/2 -50, imgWMove, imgHMove);
+   fill(0);
+   text("Change Background!!",  width/3 + 20, height/2 - 25);
       
    if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
    {
-    
      if(mousePressed == true)
      {
-       
-       image = 1;
-         
+       image = 1; 
      }
      
    } 
@@ -99,6 +98,26 @@ void charts()
      imgTMove = 20;
      
    }  
+}
+
+//load planet information into planets arraylist
+void loadPlanetTable()
+{ 
+  for(TableRow row : table.rows())
+  {
+     Planet pl1 = new Planet();
+    
+    pl1.planet = row.getString("planet");
+    pl1.distance = row.getFloat("distance");
+    pl1.diameter = row.getFloat("diameter");
+    pl1.orbitperiod = row.getFloat("orbitperiod");
+    pl1.orbitvel = row.getFloat("orbitvel");
+    pl1.c = color(random(255), random(255), random(255));
+    
+    planets.add(pl1);
+    
+  }
+  
 }
 
 //draw Graphs and barchart
@@ -245,7 +264,6 @@ void drawDiameterBarChart()
     textSize(18);
     text(pl1.planet, boxX, boxY + 50);
     boxX = boxX + barW + 10;
-    
   }
   
 }
@@ -265,8 +283,7 @@ float maxVal()
     }
   }
   
-  return max;
-  
+  return max; 
 }
 
 float distMaxVal()

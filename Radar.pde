@@ -16,7 +16,6 @@ class Radar
     this.radius = radius;
     this.speed = speed;
   }
-  
   void update()
   {
     rtheta += speed;
@@ -36,8 +35,7 @@ class Radar
       
       float x = cx + sin(lineTheta) * radius - 1;
       float y = cy - cos(lineTheta) * radius - 1;
-      line(cx, cy, x, y);
-      
+      line(cx, cy, x, y); 
     }
   }
 }

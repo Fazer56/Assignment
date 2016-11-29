@@ -40,9 +40,6 @@ class Planet
     
   }
   
-  
-  
-  
   void planetInfo()
   {
     fill(255,255,255);

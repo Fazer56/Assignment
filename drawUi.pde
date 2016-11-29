@@ -193,30 +193,30 @@ void drawUi()
   
    if(frameCount % 12 == 0)
    {
-    gauge-=2.5;
-    counter--;
-    
-    if(gauge <= 0)
-    {
-     
-      gauge = 0;
+      gauge-=2.5;
+      counter--;
       
-    }
-    if(refill == true)
-    {
-      gauge = 248;
-      counter = 100;
-      refill = false;
+      if(gauge <= 0)
+      {
+       
+        gauge = 0;
+        
+      }
+      if(refill == true)
+      {
+        gauge = 248;
+        counter = 100;
+        refill = false;
+        
+      }
       
-    }
-    
-    if(counter <= 0)
-    {
-     
-      counter = 0;
-      choice = 0;
-    }
-    
+      if(counter <= 0)
+      {
+       
+        counter = 0;
+        choice = 0;
+      }
+      
    }
    
    if(counter < 20)
@@ -527,10 +527,8 @@ void soundWave()
     if((mouseX >= b4.x && mouseX < b4.x + b4.recW) && (mouseY >= b4.y && mouseY < b4.y + b4.recH))
     {
       chew.rewind();
-      chew.play();
-      
+      chew.play(); 
     }
-    
   }
   size++;
   
@@ -558,7 +556,6 @@ void soundWave()
   stroke(255,0,0);  
 }
 
-
 void instruct()
 {
   if(moveArcX <= 100)
@@ -566,8 +563,5 @@ void instruct()
     text("SpaceBar To return", width/2- 100, height/2);
     
   }
-  moveArcX ++;
-  
-  
-  
+  moveArcX ++; 
 }

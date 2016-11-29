@@ -85,11 +85,11 @@ void starMap()
     fill(255,255,255);
     textAlign(LEFT, CENTER);
     text(xc, xc + 20, yc);
-    
   }  
   fill(255,255,255);
   textFont(font2);
-  text("SpaceBar To return", width/2- 250, height/1.1);
-  text("Loading Screen STARMAP", width/2- 250, 80);
+  text("Loading Screen STARMAP", width/4, 80);
+  textSize(20);
+  text("SpaceBar To return", width/4, height/1.1);
   
 }

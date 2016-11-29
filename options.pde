@@ -19,25 +19,6 @@ void options()
   textFont(font2);
   textSize(opt1.rectX/12);
   text(opt1.option, opt1.rectX+10, mv1 + opt1.rectX/10);
-  
- /* textFont(font3);
-  Button opt1 = new Button(mv1, height/8, width/4, width/8, "Spaceship Cockpit", width/1.5 + 30, height/2 + 330, 20, color(45, 60, 105), color(0,200,255));
-  
-   opt1.drawButton();
-   
-  if((mouseX >= opt1.x && mouseX <= opt1.x + opt1.recW) && (mouseY >= opt1.y && mouseY <= opt1.y + opt1.recH))
-  {
-   
-    
-    if(mousePressed == true)
-    {
-      check = 0;
-      
-      
-    }
-    
-  }*/
-  
    
   if((mouseX >= opt1.rectX && mouseX <= opt1.rectX + opt1.recW) && (mouseY >= opt1.rectY && mouseY <= opt1.rectY + opt1.recH))
   {
@@ -104,28 +85,4 @@ void options()
   {
     mv2 = opt1.rectX;    
   }
-}
-
-
-
-//load planet information into planets arraylist
-void loadPlanetTable()
-{
- 
-  
-  for(TableRow row : table.rows())
-  {
-     Planet pl1 = new Planet();
-    
-    pl1.planet = row.getString("planet");
-    pl1.distance = row.getFloat("distance");
-    pl1.diameter = row.getFloat("diameter");
-    pl1.orbitperiod = row.getFloat("orbitperiod");
-    pl1.orbitvel = row.getFloat("orbitvel");
-    pl1.c = color(random(255), random(255), random(255));
-    
-    planets.add(pl1);
-    
-  }
-  
 }

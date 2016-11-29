@@ -1,6 +1,5 @@
 class Button
 {
-  
   float x ;
   float y ;
   float rectX;
@@ -38,8 +37,6 @@ class Button
   
   void drawButton()
   {
-   
-  
     stroke(0,255,255);
     fill(c);
     rect(x, y, recW, recH);
@@ -49,14 +46,11 @@ class Button
      
     if((mouseX >= x && mouseX <= x + recW) && (mouseY >= y && mouseY <= y + recH))
     {
-     
       fill(hover);
       rect(x, y, recW, recH);
       textSize(txtSize);
       fill(255,255,255);
       text(option, txtX, txtY);
-      
-      
     }
         
   }

@@ -13,7 +13,6 @@ class Galaxy
   Galaxy()
   { 
   }
-  
     //parameterised constructor
   Galaxy(float speed, float x, float y, float z, float r, color c)
   {
@@ -24,8 +23,6 @@ class Galaxy
     this.c = c;
     
     this.radius = r;
-   
-    
     createSphere(y);
     
   }
