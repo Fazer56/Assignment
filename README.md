@@ -23,3 +23,28 @@ You can also see the frequency of the sound. Which is mapped onto two lines.
  
 
 
+
+Other cool stuff…
+
+Some navigation dials in the cockpit a radar and lifeline that shows your pulse.
+
+ 
+
+When the fuel gauge in the top left corner goes down to 20% there is a warning. And when the fuel is empty the soundwave and navigation dials stop working until the refuel button is clicked.
+
+ 
+
+
+My main page has various buttons that open up charts with different information on planets in our solar system.
+
+ 
+
+
+
+
+
+
+
+  
+
+ 
