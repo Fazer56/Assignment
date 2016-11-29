@@ -39,6 +39,11 @@ My main page has various buttons that open up charts with different information 
 
  
 
+If you mouse over one of the points in the trend graph it displays a scaled down version of the planet, its distance from the sun, its diameter in kilometres, its orbit period and its orbit velocity.
+
+
+
+I also have some buttons that change the background image. Three really nice images to choose from.
 
 
 
