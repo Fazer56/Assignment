@@ -1,4 +1,7 @@
 //SPACESHIPCOCKPIT
+
+float moveArcX = 0;
+
 void drawUi()
 {
   UI bottom = new UI();
@@ -63,62 +66,50 @@ void drawUi()
   fill(1,34,50);
   arc(100, bottom.y - top.uiHeight, 200, 200, radians(180), radians(360));
   
-  fill(255,0,0);
-  arc(width - 100, bottom.y - top.uiHeight, 200, 200, radians(0), radians(180));
+  
   fill(1,34,50);
   arc(width - 100, bottom.y - top.uiHeight, 200, 200, radians(180), radians(360));
-  
+  fill(255,0,0);
+  arc(width - 100, bottom.y - top.uiHeight, 200, 200, radians(0), radians(180));
   
   //draw thrusters
-    //draw thrusters
-  UI ui3 = new UI(width - 100);
-
-  ui3.x = width -100;
-  ui3.y = height/6 + 150;
-  float gauge = 60;
-  ui3.recX = 100;
-  ui3.fuelX = 20;
- 
+  UI ui3 = new UI(width - 100, height/6 + 150, 60, 20);
+  UI ui4 = new UI( 100, height/6 + 150, 60, 20);
+  UI ui5 = new UI( 100, height/6 + 150, 60, 20);
   
-  for(int i = 0; i < 8; i++)
+  for(int i = 0; i < 7; i++)
   {
     
     noStroke();
     fill(0,255,255);
     //right thrust
-    rect(ui3.x, ui3.y +5, gauge, ui2.container);
+    rect(ui3.x - 20, ui3.y +5 + ui4.uiHeight, ui3.uiWidth, ui3.uiHeight);
     fill(0, 255,255);
     textFont(font, 20);
-    text("Thrust \n Right -->", ui2.recX-10, ui2.recY + 70);
+    text("Thrust \n Right -->", ui3.x - 20, ui3.y+ 70);
     //left thrust
-    rect(ui3.recX, ui2.recY + ui3.fuelX +5, ui3.gauge, ui2.container);
-    text("Thrust \n <-- Left ", ui3.recX , ui2.recY + 70);
+    rect(ui4.x - 20, ui3.y +5 + ui5.uiHeight, ui3.uiWidth, ui3.uiHeight);
+    text("Thrust \n <-- Left ", ui4.x - 20 , ui3.y + 70);
     
     if(keyPressed == true)
     {
    
       if(key == 'd' || key == 'D')
       {
-      
-         ui3.container = (ui3.container - ui2.container) - 5;
-         moveX--;
+         ui4.uiHeight = (ui4.uiHeight - ui3.uiHeight) - 5;
          
       }
       
       if(key == 'a' || key == 'A')
       {
-      
-         ui3.fuelX = (ui3.fuelX - ui2.container) - 5;
-         moveX++;
-         
-      
+         ui5.uiHeight = (ui5.uiHeight - ui3.uiHeight) - 5;
+        // moveX++;   
       }
     
     }
      
   }
-  
-  
+    
   //draw some buttons on screen 
   //Button 1 
   textFont(font);
@@ -133,7 +124,7 @@ void drawUi()
       fill(45, 60, 105);
       rect(b1.x+2, b1.y+2, b1.recW, b1.recH);
       fill(255,255,255);
-      text("REFUELING...", width/2-500, height/5);
+      text("REFUELING...", width/2-100, height/2+100);
       refill = true;
       
     }
@@ -175,8 +166,10 @@ void drawUi()
     }
     
   }
-
- 
+  
+  instruct();
+  
+  
   //draw fuel gauge
   UI fuel = new UI();
   fuel.x = 200;
@@ -240,6 +233,7 @@ void drawUi()
         if(frameCount % 12 == 0)
         {
           navDials();
+          soundWave();
         }
       
    }
@@ -251,6 +245,7 @@ void drawUi()
     if(key == ' ')
     {
       gamestate = 0;
+      moveArcX = 0;
 
     }   
   } 
@@ -561,4 +556,18 @@ void soundWave()
     
   }
   stroke(255,0,0);  
+}
+
+
+void instruct()
+{
+  if(moveArcX <= 100)
+  {
+    text("SpaceBar To return", width/2- 100, height/2);
+    
+  }
+  moveArcX ++;
+  
+  
+  
 }

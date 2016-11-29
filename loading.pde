@@ -1,12 +1,4 @@
 
-float load = 0;
-float xz = 0;
-float yz = 0;
-float tz = 0; 
-float pz = 0;
-float selectedX;
-float selectedY;
-float moveElip = 0;
 
 void loading()
 {

@@ -115,15 +115,12 @@ void graphRect()
   strokeWeight(2);
   fill(0);
   rect(x, y , movChartX, movChartY);
-  
-  
+ 
   movChartX+=2.3;
   movChartY+=2;
   
   if(movChartX < boxW)
-  {
-   
-    
+  {   
     cx = (width/2 + 50) + sin(ltheta) * radius;
     cy = (height/2 + 30) + cos(ltheta) * radius;
     
@@ -134,14 +131,11 @@ void graphRect()
     
     for(int i = 0; i < 10; i ++)
     {
-    
       fill(random(0, 255));
       ellipse(cx, cy, 20, 20);
-      
     }
     
     ltheta+=0.05;
-    
   }
   
   if(movChartX >= boxW)
@@ -159,9 +153,7 @@ void graphRect()
   {
     trendGraph();
     
-  }
-  
-  
+  } 
 }
 
 void trendGraph()
@@ -270,10 +262,7 @@ float maxVal()
     if(pl1.diameter > max)
     {
       max = pl1.diameter;
-      
     }
-    
-    
   }
   
   return max;

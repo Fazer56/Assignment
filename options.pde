@@ -1,11 +1,3 @@
-float imgWMove = 0;
-float imgTMove = 1;
-float imgHMove = 0;
-
-float mv1 =0;
-float mv2 = 0;
-float mv3 = 0;
-
 void options()
 {
   
@@ -59,8 +51,7 @@ void options()
     if(mousePressed == true)
     {
       gamestate = 1;
-      
-      
+            
     }
     
   }
@@ -72,9 +63,7 @@ void options()
     mv1 = opt1.rectY;
     
   }
-    
-     
-  
+      
   /* SECOND BUTTON */
  
   Button opt2;
@@ -102,25 +91,19 @@ void options()
     fill(255,255,255);
     textSize(opt2.rectX/12);
     text(opt2.option, mv2+10, opt2.rectY + opt2.rectX/10);
-    
-    
-    
+      
     if(mousePressed == true)
     {
       gamestate = 2;
-    }
-    
+    }    
   }
   
   mv2+=3.5;
   
   if(mv2 >= opt1.rectX)
   {
-    mv2 = opt1.rectX;
-    
+    mv2 = opt1.rectX;    
   }
-  
-
 }
 
 
