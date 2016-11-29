@@ -72,7 +72,8 @@ class Star
   {
     noStroke();
     fill(random(150, 255), random(150, 255), 255);
-    ellipse(x, y, 20, 20);
+    ellipse(x, y, 5, 5);
+    ellipse(x + 30, y + 30, 8, 8);
   }
   
 }

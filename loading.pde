@@ -72,6 +72,11 @@ void loading()
  {
    moveElip = width/2 - 100; 
  }
+ if(moveElip < width/2 - 80)
+ {
+   text("Click Anywhere To Draw Stars", width/2 -230, height/2-25);
+   
+ }
   
     xz+=1;
     yz+=1;

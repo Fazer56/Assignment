@@ -1,3 +1,12 @@
+/*
+Student: Faoilean Fortune
+Student Number: C15380201
+Course: DT282/2 Computer Science International
+Semester 1 OOP Assignment
+Date:29/11/2016
+Lecturer: Bryan Duggan
+*/
+
 import ddf.minim.*;
 
 void setup()
@@ -172,12 +181,4 @@ void menu()
   }
    
 }
-
-
-
-
-
-
-
-   
   

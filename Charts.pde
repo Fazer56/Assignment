@@ -192,6 +192,8 @@ void trendGraph()
   fill(255,255,255);
   textSize(40);
   text("Planetary Orbit Velocity", boxX + 40, 80);
+  textSize(19);
+  text("Mouse Over Here -->", boxX + 98, boxY - 100);
   
   Planet pl1 = new Planet();
   Planet pl2 = new Planet(); 
@@ -207,7 +209,6 @@ void trendGraph()
     fill(255,255,255);
     textSize(18);
     text(pl1.planet, txtX, boxY + 50);
-    
     if((mouseX >= boxX-15 && mouseX < boxX + 15) && (mouseY >= boxY-pl1.distance*scale -15 && mouseY < boxY-pl1.distance*scale + 15))
     {
       background(0);

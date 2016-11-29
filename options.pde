@@ -1,6 +1,15 @@
 void options()
 {
   
+ // noFill();
+ // stroke(0,255,255);
+  //rect(width/2 -250, height/2 - 40, 400, 220); 
+  fill(255,255,255);
+  textFont(font, 30);
+  textSize(40);
+  text("FORTUNE INNOVATIONS\nSEMESTER 1\nOOP ASSIGNMENT", 40, height/5);
+  
+  
   /* FIRST BUTTON */
  
   Button opt1;
