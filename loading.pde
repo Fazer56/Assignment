@@ -1,5 +1,3 @@
-
-
 void loading()
 {
   UI container = new UI();
@@ -47,8 +45,7 @@ void loading()
   
   if(frameCount %6 ==0)
   {
-    load++;
-    
+    load++; 
   }
   
   if(load == 199)
@@ -73,9 +70,7 @@ void loading()
  
  if(moveElip >= width/2 - 100)
  {
-  
-   moveElip = width/2 - 100;
-   
+   moveElip = width/2 - 100; 
  }
   
     xz+=1;
@@ -129,26 +124,7 @@ void loading()
       fill(c);
       text(selectedX + "  X coordinate", selectedX + 50, selectedY + 10);
       text(selectedY + "  Y coordinate", selectedX + 50, selectedY + 30);
-   }
-   
-   /*
-   Button b1 = new Button(width/1.5, height/3, 250, 150, "New Button", width/1.5 + 30, height/3 + 100, 20);
-   
-   b1.drawButton();
-   
-   if((mouseX >= b1.x && mouseX < b1.x + b1.recW) && (mouseY >= b1.y && mouseY < b1.y + b1.recH))
-   {
-    
-     if(mousePressed == true)
-     {
-       
-       gamestate = 0;
-       
-     }
-     
-   } */
-   
-   
+   }   
 }
    
   
